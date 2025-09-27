@@ -1,0 +1,489 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5Q1C5BCJK9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5Q1C5BCJK9');
+</script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Raghavendra Meena - CV</title>
+  <style>
+    @font-face {
+      font-family: "Proxima";
+      src: url("https://static.parastorage.com/fonts/v2/c24fcada-6239-48bc-8b88-9288338191c9/v1/proxima-n-w01-reg.woff2") format("woff2");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "AvenirLight";
+      src: url("https://static.parastorage.com/fonts/v2/af36905f-3c92-4ef9-b0c1-f91432f16ac1/v1/avenir-lt-w05_35-light.woff2") format("woff2");
+      font-weight: 300;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "AvenirHeavy";
+      src: url("https://static.parastorage.com/fonts/v2/74290729-59ae-4129-87d0-2eec3974dce1/v1/avenir-lt-w01_85-heavy.woff2") format("woff2");
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    :root{
+      --site-width: 800px;
+      --muted: #888;
+      --divider: #dadada;
+      --black: #111;
+      --text: #232323;
+      --accent: #c0392b;
+      --bg: #fff;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:#f8f9fa;
+      color:var(--text);
+      font-family: AvenirLight, Proxima, "Helvetica Neue", Arial, sans-serif;
+      font-size:15.5px;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.75;
+    }
+    a{color:inherit;text-decoration:none}
+
+    .wrap{max-width:var(--site-width);margin:0 auto;padding:28px 18px 80px;}
+
+    header.header-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      align-items:start;
+      gap: 12px;
+      padding-bottom: 18px;
+    }
+    .name-block {
+      display:inline-block;
+      background: var(--black);
+      color: #fff;
+      font-family: Proxima, "Helvetica Neue", Arial, sans-serif;
+      font-weight:500;
+      font-size:30px;
+      line-height:0.7;
+      padding: 6px 10px;
+      letter-spacing: 0;
+      margin-bottom: 8px;
+    }
+    .subtitle {
+      display:block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: 0.05em;
+    }
+    .header-divider {
+      grid-column: 1 / -1;
+      border-top: 1px solid var(--divider);
+      margin-top: 20px;
+    }
+    nav.site-nav {
+      justify-self: end;
+      align-self: center;
+      text-align: right;
+      margin-top: 2px;
+    }
+    nav.site-nav ul{
+      list-style:none;
+      display:inline-flex;
+      gap: 18px;
+      padding:0;
+      margin:0;
+      align-items:center;
+      font-family: Proxima, "Helvetica Neue", Arial, sans-serif;
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:0.04em;
+    }
+    nav.site-nav li{
+      padding:0 10px;
+      color: #666;
+      height:24px;
+      display:flex;
+      align-items:center;
+    }
+    nav.site-nav li + li { border-left: 1px solid var(--divider); margin-left: 8px; padding-left: 18px; }
+    nav.site-nav a{ color:#666; transition: color .15s; }
+    nav.site-nav a:hover{ color: #000; }
+
+    /* CV CLASSIC LAYOUT */
+    .cv-main {
+      background: #fff;
+      margin: 0 auto 48px;
+      padding: 44px 32px 38px 32px;
+      border-radius: 10px;
+      box-shadow: 0 1.5px 10px rgba(44,62,80,0.07);
+      max-width: 760px;
+      border: 1px solid #eee;
+    }
+    .cv-head {
+      text-align: left;
+      margin-bottom: 28px;
+      border-bottom: 1.5px solid var(--divider);
+      padding-bottom: 16px;
+    }
+    .cv-head h1 {
+      font-family: Proxima, Arial, sans-serif;
+      color: var(--black);
+      font-size: 2.3em;
+      margin: 0 0 6px 0;
+      letter-spacing: 0.01em;
+      font-weight: 700;
+    }
+    .cv-contact {
+      font-size: 1em;
+      color: var(--muted);
+      margin-bottom: 3px;
+    }
+    .cv-contact a {
+      color: var(--accent);
+      text-decoration: none;
+      margin-right: 14px;
+      font-size: 1em;
+    }
+    .cv-contact a:hover { text-decoration: underline; }
+    .cv-summary {
+      color: #2d2d2d;
+      font-size: 1.08em;
+      margin-bottom: 16px;
+      line-height: 1.72;
+    }
+
+    .cv-section {
+      margin-bottom: 28px;
+      padding-bottom: 0;
+    }
+    .cv-section:last-child { margin-bottom: 0; }
+    .cv-section h2 {
+      font-family: Proxima, Arial, sans-serif;
+      color: var(--black);
+      font-size: 1.12em;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      border-left: 4px solid var(--accent);
+      padding-left: 10px;
+      margin: 0 0 14px 0;
+      font-weight: 700;
+    }
+    .cv-entries {
+      margin-left: 0;
+      padding-left: 0;
+    }
+    .cv-entry {
+      margin-bottom: 15px;
+      padding-bottom: 7px;
+      border-left: 2.5px solid var(--divider);
+      padding-left: 15px;
+      position: relative;
+    }
+    .cv-entry:last-child { margin-bottom: 0; }
+    .cv-title-row {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      font-weight: 600;
+      font-family: Proxima, Arial, sans-serif;
+      color: #333;
+      font-size: 1em;
+    }
+    .cv-place { color: var(--accent); font-style: italic; font-size: 0.98em; margin-bottom: 2px;}
+    .cv-date { color: var(--muted); font-size: 0.97em; font-family: AvenirLight, Arial, sans-serif; }
+    .cv-entry ul, .cv-entry ol {
+      margin: 6px 0 4px 20px;
+      padding: 0;
+      font-size: 0.99em;
+      line-height: 1.72;
+    }
+    .cv-entry li { margin-bottom: 3px;}
+    .cv-entry li:last-child { margin-bottom: 0;}
+    /* Skills and list blocks */
+    .cv-list {
+      columns: 2 15em;
+      -webkit-columns: 2 15em;
+      -moz-columns: 2 15em;
+      margin: 0;
+      padding: 0 0 0 5px;
+      list-style: disc inside;
+    }
+    .cv-list li { margin-bottom: 2px; }
+    @media (max-width:900px){
+      .cv-main { padding:18px 5px 18px 5px; }
+      .footer-inner, .wrap { padding-left: 2px; padding-right: 2px;}
+      header.header-grid{ grid-template-columns: 1fr; }
+      nav.site-nav{ justify-self: start; margin-top: 12px; text-align:left; }
+      .cv-head { padding-bottom: 7px;}
+    }
+    @media (max-width:600px){
+      .cv-main { padding: 7px 2px 7px 2px; }
+      .cv-title-row { flex-direction: column; gap: 2px;}
+    }
+    footer.site-footer{
+      border-top: 1px solid var(--divider);
+      padding: 28px 18px;
+      margin-top: 32px;
+      background: #fff;
+    }
+    .footer-inner{
+      max-width:var(--site-width);
+      margin:0 auto;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap: 12px;
+      color: var(--muted);
+      font-size:14px;
+      padding: 0 2px;
+    }
+    .socials{ display:inline-flex; gap:18px; align-items:center; }
+    .socials a{ color: var(--muted); font-size:18px; display:inline-block; }
+    .socials a:hover{ color:#000; }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="header-grid" role="banner">
+      <div>
+        <span class="name-block">RAGHAVENDRA MEENA</span>
+        <div class="subtitle">computational materials scientist</div>
+      </div>
+      <nav class="site-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/pubs.html">Publications</a></li>
+          <li><a href="/photography.html">Photography</a></li>
+          <li><a href="/cv.html">CV</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-divider" aria-hidden="true"></div>
+    </header>
+    <main class="cv-main">
+      <div class="cv-head">
+        <h1>Raghavendra Meena</h1>
+        <div class="cv-contact">
+          <a href="mailto:raghavendra.meena@wur.nl"><i class="fa fa-envelope"></i> raghavendra.meena@wur.nl</a>
+          <a href="https://www.linkedin.com/in/raghavendra-meena/"><i class="fa fa-linkedin"></i> LinkedIn</a>
+          <a href="https://scholar.google.com/citations?user=e-ZYru0AAAAJ&hl=en"><i class="fa fa-graduation-cap"></i> Scholar</a>
+          <a href="https://orcid.org/0000-0002-2019-8806"><i class="fa fa-id-badge"></i> ORCID</a>
+        </div>
+        <div class="cv-summary">
+          Computational materials scientist with expertise in DFT, AIMD, microkinetic modeling, and machine learning for sustainable catalysis and materials design. Experienced in multiscale modeling, descriptor identification, and ML force fields. Passionate about open science, collaboration, and knowledge sharing.
+        </div>
+      </div>
+
+      <section class="cv-section">
+        <h2>Education</h2>
+        <div class="cv-entries">
+          <div class="cv-entry">
+            <div class="cv-title-row">
+              <span>PhD Computational Chemistry</span>
+              <span class="cv-date">2020–2024</span>
+            </div>
+            <div class="cv-place">Wageningen University & Research, NL</div>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-title-row">
+              <span>MSc (M2) Computational Materials Science</span>
+              <span class="cv-date">2019–2020</span>
+            </div>
+            <div class="cv-place">Sorbonne Université, FR</div>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-title-row">
+              <span>BS-MS Chemistry & Physics</span>
+              <span class="cv-date">2015–2020</span>
+            </div>
+            <div class="cv-place">IISER Pune, IN</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cv-section">
+        <h2>Research Experience</h2>
+        <div class="cv-entries">
+          <div class="cv-entry">
+            <div class="cv-title-row">
+              <span>Doctoral Researcher</span>
+              <span class="cv-date">Oct 2020 – Sep 2024</span>
+            </div>
+            <div class="cv-place">Wageningen University & Research, NL</div>
+            <ul>
+              <li>Developed multiscale modeling workflows for the catalytic activity of transition metal (oxy)carbides in biomass conversion (DFT, MKM, AIMD).</li>
+              <li>Identified activity descriptors using interpretable ML (SISSO); accelerated AIMD via ML potentials (MACE, fair-chem).</li>
+              <li>Elucidated reaction mechanisms and active sites in surface-activated mechanocatalysis and non-oxidative methane coupling.</li>
+              <li>Contributed to experimental–theoretical collaborations on plastic waste upcycling and selective catalysis.</li>
+            </ul>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-title-row">
+              <span>Master's Thesis Intern</span>
+              <span class="cv-date">May 2019 – May 2020</span>
+            </div>
+            <div class="cv-place">Sorbonne Université, FR</div>
+            <ul>
+              <li>Studied magnetic properties of carbon-based materials with DFT+U and quantum Monte Carlo (QMC).</li>
+              <li>Showed zigzag graphene nanoribbons (zGNRs) are correlated low-dimensional materials with AFM π electrons.</li>
+            </ul>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-title-row">
+              <span>Research Intern</span>
+              <span class="cv-date">Aug 2018 – May 2019</span>
+            </div>
+            <div class="cv-place">IISER Pune, IN</div>
+            <ul>
+              <li>Explored bandgaps and magnetism in zGNRs as a function of width using DFT.</li>
+            </ul>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-title-row">
+              <span>Research Intern</span>
+              <span class="cv-date">May 2018 – Jul 2018</span>
+            </div>
+            <div class="cv-place">Indian Institute of Science, IN</div>
+            <ul>
+              <li>Demonstrated isonitrile coupling mediated by allenic diborenes as an alternative to transition metals (DFT).</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="cv-section">
+        <h2>Selected Publications</h2>
+        <div class="cv-entries">
+          <div class="cv-entry">
+            <ul>
+              <li><b>Meena, R.</b>, Draijer, K. M., van Dam, B., Zuilhof, H., Bitter, J. H., Li, G. (2025). Rationalizing Catalytic Performances of Mo/W‐(Oxy)Carbides for Hydrodeoxygenation. <i>ChemCatChem</i>. <a href="https://doi.org/10.1002/cctc.202500659" target="_blank">DOI</a></li>
+              <li><b>Meena, R.</b>, Draijer, K. M., van Dam, B., Zuilhof, H., Bitter, J. H., Li, G. (2025). Front Cover: Rationalizing Catalytic Performances... <i>ChemCatChem</i>. <a href="https://doi.org/10.1002/cctc.70272" target="_blank">DOI</a></li>
+              <li>Hergesell, A. H., Popp, S., <b>Meena, R.</b>, et al. (2025). Homolytic fracture of inorganic crystalline materials... <i>Chemical Science</i>. <a href="https://doi.org/10.1039/d5sc03348a" target="_blank">DOI</a></li>
+              <li>Pirgach, D. A., <b>Meena, R.</b>, et al. (2025). Medium-dependent regioselectivity... <i>RSC Sustainability</i>. <a href="https://doi.org/10.1039/d5su00037h" target="_blank">DOI</a></li>
+              <li>Hergesell, A. H., Baarslag, R. J., Seitzinger, C. L., <b>Meena, R.</b>, et al. (2024). Surface-Activated Mechano-Catalysis... <i>JACS</i>. <a href="https://doi.org/10.1021/jacs.4c07157" target="_blank">DOI</a></li>
+              <li><b>Meena, R.</b>, Bitter, J. H., Zuilhof, H., Li, G. (2023). Toward the Rational Design... <i>ACS Catalysis</i>. <a href="https://doi.org/10.1021/acscatal.3c03728" target="_blank">DOI</a></li>
+              <li>Zhang, H., Bolshakov, A., <b>Meena, R.</b>, et al. (2023). Revealing Active Sites in Methane Non-Oxidative Coupling... <i>Angew. Chem. Int. Ed.</i>. <a href="https://doi.org/10.1002/anie.202306196" target="_blank">DOI</a></li>
+              <li><b>Meena, R.</b>, Li, G., Casula, M. (2022). Ground-state properties of the narrowest zigzag graphene nanoribbon... <i>J. Chem. Phys.</i>. <a href="https://doi.org/10.1063/5.0078234" target="_blank">DOI</a></li>
+              <li>Ghorai, S., <b>Meena, R.</b>, et al. (2021). Comparison of RNC Coupling and CO Coupling... <i>J. Phys. Chem. A</i>. <a href="https://doi.org/10.1021/acs.jpca.1c05185" target="_blank">DOI</a></li>
+            </ul>
+            <div style="font-size:0.97em; color:var(--muted);margin-top:8px;">For full list: <a href="/pubs.html" style="color:var(--accent);text-decoration:underline;">See Publications</a></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cv-section">
+        <h2>Skills</h2>
+        <ul class="cv-list">
+          <li><b>DFT:</b> VASP, Quantum ESPRESSO, ASE, GAUSSIAN</li>
+          <li><b>QMC:</b> VMC, DMC, LRDMC</li>
+          <li><b>AIMD/Metadynamics:</b> VASP, CP2K, PLUMED</li>
+          <li><b>Programming:</b> Python (numpy, pandas, scikit-learn, pymatgen), bash, MATLAB, LaTeX</li>
+          <li><b>Visualization:</b> Blender, gnuplot, VMD, Materials Studio</li>
+          <li><b>Other:</b> HPC, website dev, Git, Linux/MacOS/Windows</li>
+          <li><b>Personal:</b> Communication, leadership, independent, multicultural team</li>
+        </ul>
+      </section>
+
+      <section class="cv-section">
+        <h2>Grants & Scholarships</h2>
+        <ul class="cv-list">
+          <li>Dutch Research Council Computational Grants (2020–2025)</li>
+          <li>Erasmus+ Fellowship, Sorbonne Université (2019–2020)</li>
+          <li>INSPIRE Scholarship, India (2015–2020)</li>
+          <li>NTSE Scholarship, India (2013–2015)</li>
+        </ul>
+      </section>
+
+      <section class="cv-section">
+        <h2>Teaching & Leadership</h2>
+        <ul class="cv-list">
+          <li>Supervised 6 thesis students (3 MSc major, 1 MSc minor, 2 BSc)</li>
+          <li>Teaching assistant for advanced computational chemistry courses</li>
+        </ul>
+      </section>
+
+      <section class="cv-section">
+        <h2>Conferences & Seminars</h2>
+        <div class="cv-entry" style="border-left:none;padding-left:0;">
+          <b>Oral Presentations:</b>
+          <ul>
+            <li>Hess Group, TU Berlin, 2024</li>
+            <li>Max Planck Institute for Polymer Research, 2024</li>
+            <li>Guest lecture, Utrecht University, 2024</li>
+            <li>KNCV Theoretical Chemistry Seminar, 2023</li>
+            <li>NCCC Netherlands’ Catalysis and Chemistry Conference, 2023</li>
+            <li>CHAINS, Netherlands, 2022</li>
+          </ul>
+          <b>Poster Presentations:</b>
+          <ul>
+            <li>Food groups, TU Berlin, 2024</li>
+            <li>Physical Chemistry/Molecular Materials Sciences, TU Berlin, 2024</li>
+            <li>Humboldt University Berlin, 2024</li>
+            <li>PNCCC, Netherlands, 2024</li>
+            <li>IUPAC/CHAINS - World Forum, The Hague, 2023</li>
+            <li>EuropaCat, Prague, 2023</li>
+            <li>KNCV Theoretical Chemistry Seminar, 2023</li>
+            <li>ICTAC, Lyon, France, 2022</li>
+            <li>NCCC, Noordwijkerhout, Netherlands, 2022</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="cv-section">
+        <h2>Certifications</h2>
+        <ul class="cv-list">
+          <li>CECAM MolSim "Understanding Molecular Simulation", 2023</li>
+          <li>Han-sur-Lesse winter school for theoretical & computational chemistry, 2022</li>
+          <li>Paris International School on Advanced Computational Materials Science, 2021</li>
+        </ul>
+      </section>
+
+      <section class="cv-section">
+        <h2>Languages</h2>
+        <ul class="cv-list">
+          <li>English (Professional)</li>
+          <li>Hindi (Native)</li>
+          <li>Dutch (A2)</li>
+          <li>French (A1)</li>
+        </ul>
+      </section>
+
+      <section class="cv-section">
+        <h2>Hobbies</h2>
+        <ul class="cv-list">
+          <li>Soccer (Semi-Pro)</li>
+          <li>Chess (1590 Elo)</li>
+          <li>Photography</li>
+          <li>Trading (CFDs, stocks, crypto)</li>
+        </ul>
+      </section>
+
+    </main>
+    <footer class="site-footer" role="contentinfo">
+      <div class="footer-inner">
+        <div>&copy; 2025 by Raghavendra Meena.</div>
+        <div class="socials" aria-label="Social links">
+          <a href="https://www.linkedin.com/in/raghavendra-meena/" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+          <a href="https://www.instagram.com/raghavendram3" aria-label="Instagram"><i class="fa fa-instagram"></i></a>
+          <a href="https://scholar.google.com/citations?user=e-ZYru0AAAAJ&hl=en" aria-label="Google Scholar"><i class="fa fa-graduation-cap"></i></a>
+          <a href="mailto:raghavendra.meena@wur.nl" aria-label="Email"><i class="fa fa-envelope"></i></a>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
