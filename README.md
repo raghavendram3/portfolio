@@ -3,10 +3,10 @@
 Welcome to my portfolio repository! This site serves as a comprehensive showcase of my academic, professional, and creative work. Explore the various sections to learn more about my background, publications, skills, and interests.
 
 ---
+---
 
 ## 📄 Portfolio Layout
 
----
 
 ## About Me
 
