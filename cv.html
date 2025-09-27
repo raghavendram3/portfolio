@@ -122,7 +122,29 @@
     nav.site-nav a{ color:#666; transition: color .15s; }
     nav.site-nav a:hover{ color: #000; }
 
-    /* CV CLASSIC LAYOUT */
+    /* CV CLASSIC LAYOUT + CONTACT COLUMN */
+    .content-split{
+      max-width: var(--site-width);
+      margin: 0 auto 48px;
+      display:grid;
+      grid-template-columns: 1fr 240px;
+      gap: 38px;
+      align-items:start;
+      padding: 0;
+    }
+    @media (max-width:900px){
+      .content-split{ grid-template-columns: 1fr; }
+      .right-col{ border-left: none; padding-left: 0; margin-top: 18px; min-height: auto; }
+      nav.site-nav{ justify-self: start; margin-top: 12px; text-align:left; }
+      header.header-grid{ grid-template-columns: 1fr; }
+      .cv-head { padding-bottom: 7px;}
+    }
+    @media (max-width:600px){
+      .content-split{ grid-template-columns: 1fr; }
+      .cv-main { padding: 7px 2px 7px 2px; }
+      .cv-title-row { flex-direction: column; gap: 2px;}
+    }
+
     .cv-main {
       background: #fff;
       margin: 0 auto 48px;
@@ -222,17 +244,29 @@
       list-style: disc inside;
     }
     .cv-list li { margin-bottom: 2px; }
-    @media (max-width:900px){
-      .cv-main { padding:18px 5px 18px 5px; }
-      .footer-inner, .wrap { padding-left: 2px; padding-right: 2px;}
-      header.header-grid{ grid-template-columns: 1fr; }
-      nav.site-nav{ justify-self: start; margin-top: 12px; text-align:left; }
-      .cv-head { padding-bottom: 7px;}
+
+    /* Contact column styles (based on pubs.html) */
+    .right-col {
+      border-left: 1px solid var(--divider);
+      padding-left: 28px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height: 260px;
     }
-    @media (max-width:600px){
-      .cv-main { padding: 7px 2px 7px 2px; }
-      .cv-title-row { flex-direction: column; gap: 2px;}
+    .contact-cta{
+      background: var(--black);
+      color: #fff;
+      font-family: Proxima, sans-serif;
+      font-weight:700;
+      text-transform:uppercase;
+      letter-spacing:0.12em;
+      padding: 16px 36px;
+      display:inline-block;
+      font-size: 14px;
+      border: 4px solid #fff;
     }
+
     footer.site-footer{
       border-top: 1px solid var(--divider);
       padding: 28px 18px;
@@ -274,204 +308,211 @@
       </nav>
       <div class="header-divider" aria-hidden="true"></div>
     </header>
-    <main class="cv-main">
-      <div class="cv-head">
-        <h1>Raghavendra Meena</h1>
-        <div class="cv-contact">
-          <a href="mailto:raghavendra.meena@wur.nl"><i class="fa fa-envelope"></i> raghavendra.meena@wur.nl</a>
-          <a href="https://www.linkedin.com/in/raghavendra-meena/"><i class="fa fa-linkedin"></i> LinkedIn</a>
-          <a href="https://scholar.google.com/citations?user=e-ZYru0AAAAJ&hl=en"><i class="fa fa-graduation-cap"></i> Scholar</a>
-          <a href="https://orcid.org/0000-0002-2019-8806"><i class="fa fa-id-badge"></i> ORCID</a>
-        </div>
-        <div class="cv-summary">
-          Computational materials scientist with expertise in DFT, AIMD, microkinetic modeling, and machine learning for sustainable catalysis and materials design. Experienced in multiscale modeling, descriptor identification, and ML force fields. Passionate about open science, collaboration, and knowledge sharing.
-        </div>
-      </div>
 
-      <section class="cv-section">
-        <h2>Education</h2>
-        <div class="cv-entries">
-          <div class="cv-entry">
-            <div class="cv-title-row">
-              <span>PhD Computational Chemistry</span>
-              <span class="cv-date">2020–2024</span>
+    <main>
+      <section class="content-split" aria-label="Main content">
+        <article class="cv-main">
+          <div class="cv-head">
+            <h1>Raghavendra Meena</h1>
+            <div class="cv-contact">
+              <a href="mailto:raghavendra.meena@wur.nl"><i class="fa fa-envelope"></i> raghavendra.meena@wur.nl</a>
+              <a href="https://www.linkedin.com/in/raghavendra-meena/"><i class="fa fa-linkedin"></i> LinkedIn</a>
+              <a href="https://scholar.google.com/citations?user=e-ZYru0AAAAJ&hl=en"><i class="fa fa-graduation-cap"></i> Scholar</a>
+              <a href="https://orcid.org/0000-0002-2019-8806"><i class="fa fa-id-badge"></i> ORCID</a>
             </div>
-            <div class="cv-place">Wageningen University & Research, NL</div>
-          </div>
-          <div class="cv-entry">
-            <div class="cv-title-row">
-              <span>MSc (M2) Computational Materials Science</span>
-              <span class="cv-date">2019–2020</span>
+            <div class="cv-summary">
+              Computational materials scientist with expertise in DFT, AIMD, microkinetic modeling, and machine learning for sustainable catalysis and materials design. Experienced in multiscale modeling,[...]
             </div>
-            <div class="cv-place">Sorbonne Université, FR</div>
           </div>
-          <div class="cv-entry">
-            <div class="cv-title-row">
-              <span>BS-MS Chemistry & Physics</span>
-              <span class="cv-date">2015–2020</span>
-            </div>
-            <div class="cv-place">IISER Pune, IN</div>
-          </div>
-        </div>
-      </section>
 
-      <section class="cv-section">
-        <h2>Research Experience</h2>
-        <div class="cv-entries">
-          <div class="cv-entry">
-            <div class="cv-title-row">
-              <span>Doctoral Researcher</span>
-              <span class="cv-date">Oct 2020 – Sep 2024</span>
+          <section class="cv-section">
+            <h2>Education</h2>
+            <div class="cv-entries">
+              <div class="cv-entry">
+                <div class="cv-title-row">
+                  <span>PhD Computational Chemistry</span>
+                  <span class="cv-date">2020–2024</span>
+                </div>
+                <div class="cv-place">Wageningen University & Research, NL</div>
+              </div>
+              <div class="cv-entry">
+                <div class="cv-title-row">
+                  <span>MSc (M2) Computational Materials Science</span>
+                  <span class="cv-date">2019–2020</span>
+                </div>
+                <div class="cv-place">Sorbonne Université, FR</div>
+              </div>
+              <div class="cv-entry">
+                <div class="cv-title-row">
+                  <span>BS-MS Chemistry & Physics</span>
+                  <span class="cv-date">2015–2020</span>
+                </div>
+                <div class="cv-place">IISER Pune, IN</div>
+              </div>
             </div>
-            <div class="cv-place">Wageningen University & Research, NL</div>
-            <ul>
-              <li>Developed multiscale modeling workflows for the catalytic activity of transition metal (oxy)carbides in biomass conversion (DFT, MKM, AIMD).</li>
-              <li>Identified activity descriptors using interpretable ML (SISSO); accelerated AIMD via ML potentials (MACE, fair-chem).</li>
-              <li>Elucidated reaction mechanisms and active sites in surface-activated mechanocatalysis and non-oxidative methane coupling.</li>
-              <li>Contributed to experimental–theoretical collaborations on plastic waste upcycling and selective catalysis.</li>
+          </section>
+
+          <section class="cv-section">
+            <h2>Research Experience</h2>
+            <div class="cv-entries">
+              <div class="cv-entry">
+                <div class="cv-title-row">
+                  <span>Doctoral Researcher</span>
+                  <span class="cv-date">Oct 2020 – Sep 2024</span>
+                </div>
+                <div class="cv-place">Wageningen University & Research, NL</div>
+                <ul>
+                  <li>Developed multiscale modeling workflows for the catalytic activity of transition metal (oxy)carbides in biomass conversion (DFT, MKM, AIMD).</li>
+                  <li>Identified activity descriptors using interpretable ML (SISSO); accelerated AIMD via ML potentials (MACE, fair-chem).</li>
+                  <li>Elucidated reaction mechanisms and active sites in surface-activated mechanocatalysis and non-oxidative methane coupling.</li>
+                  <li>Contributed to experimental–theoretical collaborations on plastic waste upcycling and selective catalysis.</li>
+                </ul>
+              </div>
+              <div class="cv-entry">
+                <div class="cv-title-row">
+                  <span>Master's Thesis Intern</span>
+                  <span class="cv-date">May 2019 – May 2020</span>
+                </div>
+                <div class="cv-place">Sorbonne Université, FR</div>
+                <ul>
+                  <li>Studied magnetic properties of carbon-based materials with DFT+U and quantum Monte Carlo (QMC).</li>
+                  <li>Showed zigzag graphene nanoribbons (zGNRs) are correlated low-dimensional materials with AFM π electrons.</li>
+                </ul>
+              </div>
+              <div class="cv-entry">
+                <div class="cv-title-row">
+                  <span>Research Intern</span>
+                  <span class="cv-date">Aug 2018 – May 2019</span>
+                </div>
+                <div class="cv-place">IISER Pune, IN</div>
+                <ul>
+                  <li>Explored bandgaps and magnetism in zGNRs as a function of width using DFT.</li>
+                </ul>
+              </div>
+              <div class="cv-entry">
+                <div class="cv-title-row">
+                  <span>Research Intern</span>
+                  <span class="cv-date">May 2018 – Jul 2018</span>
+                </div>
+                <div class="cv-place">Indian Institute of Science, IN</div>
+                <ul>
+                  <li>Demonstrated isonitrile coupling mediated by allenic diborenes as an alternative to transition metals (DFT).</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section class="cv-section">
+            <h2>Selected Publications</h2>
+            <div class="cv-entries">
+              <div class="cv-entry">
+                <ul>
+                  <li><b>Meena, R.</b>, Draijer, K. M., van Dam, B., Zuilhof, H., Bitter, J. H., Li, G. (2025). Rationalizing Catalytic Performances of Mo/W‐(Oxy)Carbides for Hydrodeoxygenation. <i>Chem[...]
+                  <li><b>Meena, R.</b>, Draijer, K. M., van Dam, B., Zuilhof, H., Bitter, J. H., Li, G. (2025). Front Cover: Rationalizing Catalytic Performances... <i>ChemCatChem</i>. <a href="https://do[...]
+                  <li>Hergesell, A. H., Popp, S., <b>Meena, R.</b>, et al. (2025). Homolytic fracture of inorganic crystalline materials... <i>Chemical Science</i>. <a href="https://doi.org/10.1039/d5sc03[...]
+                  <li>Pirgach, D. A., <b>Meena, R.</b>, et al. (2025). Medium-dependent regioselectivity... <i>RSC Sustainability</i>. <a href="https://doi.org/10.1039/d5su00037h" target="_blank">DOI</a><[...]
+                  <li>Hergesell, A. H., Baarslag, R. J., Seitzinger, C. L., <b>Meena, R.</b>, et al. (2024). Surface-Activated Mechano-Catalysis... <i>JACS</i>. <a href="https://doi.org/10.1021/jacs.4c071[...]
+                  <li><b>Meena, R.</b>, Bitter, J. H., Zuilhof, H., Li, G. (2023). Toward the Rational Design... <i>ACS Catalysis</i>. <a href="https://doi.org/10.1021/acscatal.3c03728" target="_blank">DO[...]
+                  <li>Zhang, H., Bolshakov, A., <b>Meena, R.</b>, et al. (2023). Revealing Active Sites in Methane Non-Oxidative Coupling... <i>Angew. Chem. Int. Ed.</i>. <a href="https://doi.org/10.1002/[...]
+                  <li><b>Meena, R.</b>, Li, G., Casula, M. (2022). Ground-state properties of the narrowest zigzag graphene nanoribbon... <i>J. Chem. Phys.</i>. <a href="https://doi.org/10.1063/5.0078234"[...]
+                  <li>Ghorai, S., <b>Meena, R.</b>, et al. (2021). Comparison of RNC Coupling and CO Coupling... <i>J. Phys. Chem. A</i>. <a href="https://doi.org/10.1021/acs.jpca.1c05185" target="_blank"[...]
+                </ul>
+                <div style="font-size:0.97em; color:var(--muted);margin-top:8px;">For full list: <a href="/pubs.html" style="color:var(--accent);text-decoration:underline;">See Publications</a></div>
+              </div>
+            </div>
+          </section>
+
+          <section class="cv-section">
+            <h2>Skills</h2>
+            <ul class="cv-list">
+              <li><b>DFT:</b> VASP, Quantum ESPRESSO, ASE, GAUSSIAN</li>
+              <li><b>QMC:</b> VMC, DMC, LRDMC</li>
+              <li><b>AIMD/Metadynamics:</b> VASP, CP2K, PLUMED</li>
+              <li><b>Programming:</b> Python (numpy, pandas, scikit-learn, pymatgen), bash, MATLAB, LaTeX</li>
+              <li><b>Visualization:</b> Blender, gnuplot, VMD, Materials Studio</li>
+              <li><b>Other:</b> HPC, website dev, Git, Linux/MacOS/Windows</li>
+              <li><b>Personal:</b> Communication, leadership, independent, multicultural team</li>
             </ul>
-          </div>
-          <div class="cv-entry">
-            <div class="cv-title-row">
-              <span>Master's Thesis Intern</span>
-              <span class="cv-date">May 2019 – May 2020</span>
+          </section>
+
+          <section class="cv-section">
+            <h2>Grants & Scholarships</h2>
+            <ul class="cv-list">
+              <li>Dutch Research Council Computational Grants (2020–2025)</li>
+              <li>Erasmus+ Fellowship, Sorbonne Université (2019–2020)</li>
+              <li>INSPIRE Scholarship, India (2015–2020)</li>
+              <li>NTSE Scholarship, India (2013–2015)</li>
+            </ul>
+          </section>
+
+          <section class="cv-section">
+            <h2>Teaching & Leadership</h2>
+            <ul class="cv-list">
+              <li>Supervised 6 thesis students (3 MSc major, 1 MSc minor, 2 BSc)</li>
+              <li>Teaching assistant for advanced computational chemistry courses</li>
+            </ul>
+          </section>
+
+          <section class="cv-section">
+            <h2>Conferences & Seminars</h2>
+            <div class="cv-entry" style="border-left:none;padding-left:0;">
+              <b>Oral Presentations:</b>
+              <ul>
+                <li>Hess Group, TU Berlin, 2024</li>
+                <li>Max Planck Institute for Polymer Research, 2024</li>
+                <li>Guest lecture, Utrecht University, 2024</li>
+                <li>KNCV Theoretical Chemistry Seminar, 2023</li>
+                <li>NCCC Netherlands’ Catalysis and Chemistry Conference, 2023</li>
+                <li>CHAINS, Netherlands, 2022</li>
+              </ul>
+              <b>Poster Presentations:</b>
+              <ul>
+                <li>Food groups, TU Berlin, 2024</li>
+                <li>Physical Chemistry/Molecular Materials Sciences, TU Berlin, 2024</li>
+                <li>Humboldt University Berlin, 2024</li>
+                <li>PNCCC, Netherlands, 2024</li>
+                <li>IUPAC/CHAINS - World Forum, The Hague, 2023</li>
+                <li>EuropaCat, Prague, 2023</li>
+                <li>KNCV Theoretical Chemistry Seminar, 2023</li>
+                <li>ICTAC, Lyon, France, 2022</li>
+                <li>NCCC, Noordwijkerhout, Netherlands, 2022</li>
+              </ul>
             </div>
-            <div class="cv-place">Sorbonne Université, FR</div>
-            <ul>
-              <li>Studied magnetic properties of carbon-based materials with DFT+U and quantum Monte Carlo (QMC).</li>
-              <li>Showed zigzag graphene nanoribbons (zGNRs) are correlated low-dimensional materials with AFM π electrons.</li>
+          </section>
+
+          <section class="cv-section">
+            <h2>Certifications</h2>
+            <ul class="cv-list">
+              <li>CECAM MolSim "Understanding Molecular Simulation", 2023</li>
+              <li>Han-sur-Lesse winter school for theoretical & computational chemistry, 2022</li>
+              <li>Paris International School on Advanced Computational Materials Science, 2021</li>
             </ul>
-          </div>
-          <div class="cv-entry">
-            <div class="cv-title-row">
-              <span>Research Intern</span>
-              <span class="cv-date">Aug 2018 – May 2019</span>
-            </div>
-            <div class="cv-place">IISER Pune, IN</div>
-            <ul>
-              <li>Explored bandgaps and magnetism in zGNRs as a function of width using DFT.</li>
+          </section>
+
+          <section class="cv-section">
+            <h2>Languages</h2>
+            <ul class="cv-list">
+              <li>English (Professional)</li>
+              <li>Hindi (Native)</li>
+              <li>Dutch (A2)</li>
+              <li>French (A1)</li>
             </ul>
-          </div>
-          <div class="cv-entry">
-            <div class="cv-title-row">
-              <span>Research Intern</span>
-              <span class="cv-date">May 2018 – Jul 2018</span>
-            </div>
-            <div class="cv-place">Indian Institute of Science, IN</div>
-            <ul>
-              <li>Demonstrated isonitrile coupling mediated by allenic diborenes as an alternative to transition metals (DFT).</li>
+          </section>
+
+          <section class="cv-section">
+            <h2>Hobbies</h2>
+            <ul class="cv-list">
+              <li>Soccer (Semi-Pro)</li>
+              <li>Chess (1590 Elo)</li>
+              <li>Photography</li>
+              <li>Trading (CFDs, stocks, crypto)</li>
             </ul>
-          </div>
-        </div>
+          </section>
+        </article>
+        <aside class="right-col" aria-labelledby="contact-heading">
+          <div class="contact-cta" id="contact-heading">CONTACT</div>
+        </aside>
       </section>
-
-      <section class="cv-section">
-        <h2>Selected Publications</h2>
-        <div class="cv-entries">
-          <div class="cv-entry">
-            <ul>
-              <li><b>Meena, R.</b>, Draijer, K. M., van Dam, B., Zuilhof, H., Bitter, J. H., Li, G. (2025). Rationalizing Catalytic Performances of Mo/W‐(Oxy)Carbides for Hydrodeoxygenation. <i>ChemCatChem</i>. <a href="https://doi.org/10.1002/cctc.202500659" target="_blank">DOI</a></li>
-              <li><b>Meena, R.</b>, Draijer, K. M., van Dam, B., Zuilhof, H., Bitter, J. H., Li, G. (2025). Front Cover: Rationalizing Catalytic Performances... <i>ChemCatChem</i>. <a href="https://doi.org/10.1002/cctc.70272" target="_blank">DOI</a></li>
-              <li>Hergesell, A. H., Popp, S., <b>Meena, R.</b>, et al. (2025). Homolytic fracture of inorganic crystalline materials... <i>Chemical Science</i>. <a href="https://doi.org/10.1039/d5sc03348a" target="_blank">DOI</a></li>
-              <li>Pirgach, D. A., <b>Meena, R.</b>, et al. (2025). Medium-dependent regioselectivity... <i>RSC Sustainability</i>. <a href="https://doi.org/10.1039/d5su00037h" target="_blank">DOI</a></li>
-              <li>Hergesell, A. H., Baarslag, R. J., Seitzinger, C. L., <b>Meena, R.</b>, et al. (2024). Surface-Activated Mechano-Catalysis... <i>JACS</i>. <a href="https://doi.org/10.1021/jacs.4c07157" target="_blank">DOI</a></li>
-              <li><b>Meena, R.</b>, Bitter, J. H., Zuilhof, H., Li, G. (2023). Toward the Rational Design... <i>ACS Catalysis</i>. <a href="https://doi.org/10.1021/acscatal.3c03728" target="_blank">DOI</a></li>
-              <li>Zhang, H., Bolshakov, A., <b>Meena, R.</b>, et al. (2023). Revealing Active Sites in Methane Non-Oxidative Coupling... <i>Angew. Chem. Int. Ed.</i>. <a href="https://doi.org/10.1002/anie.202306196" target="_blank">DOI</a></li>
-              <li><b>Meena, R.</b>, Li, G., Casula, M. (2022). Ground-state properties of the narrowest zigzag graphene nanoribbon... <i>J. Chem. Phys.</i>. <a href="https://doi.org/10.1063/5.0078234" target="_blank">DOI</a></li>
-              <li>Ghorai, S., <b>Meena, R.</b>, et al. (2021). Comparison of RNC Coupling and CO Coupling... <i>J. Phys. Chem. A</i>. <a href="https://doi.org/10.1021/acs.jpca.1c05185" target="_blank">DOI</a></li>
-            </ul>
-            <div style="font-size:0.97em; color:var(--muted);margin-top:8px;">For full list: <a href="/pubs.html" style="color:var(--accent);text-decoration:underline;">See Publications</a></div>
-          </div>
-        </div>
-      </section>
-
-      <section class="cv-section">
-        <h2>Skills</h2>
-        <ul class="cv-list">
-          <li><b>DFT:</b> VASP, Quantum ESPRESSO, ASE, GAUSSIAN</li>
-          <li><b>QMC:</b> VMC, DMC, LRDMC</li>
-          <li><b>AIMD/Metadynamics:</b> VASP, CP2K, PLUMED</li>
-          <li><b>Programming:</b> Python (numpy, pandas, scikit-learn, pymatgen), bash, MATLAB, LaTeX</li>
-          <li><b>Visualization:</b> Blender, gnuplot, VMD, Materials Studio</li>
-          <li><b>Other:</b> HPC, website dev, Git, Linux/MacOS/Windows</li>
-          <li><b>Personal:</b> Communication, leadership, independent, multicultural team</li>
-        </ul>
-      </section>
-
-      <section class="cv-section">
-        <h2>Grants & Scholarships</h2>
-        <ul class="cv-list">
-          <li>Dutch Research Council Computational Grants (2020–2025)</li>
-          <li>Erasmus+ Fellowship, Sorbonne Université (2019–2020)</li>
-          <li>INSPIRE Scholarship, India (2015–2020)</li>
-          <li>NTSE Scholarship, India (2013–2015)</li>
-        </ul>
-      </section>
-
-      <section class="cv-section">
-        <h2>Teaching & Leadership</h2>
-        <ul class="cv-list">
-          <li>Supervised 6 thesis students (3 MSc major, 1 MSc minor, 2 BSc)</li>
-          <li>Teaching assistant for advanced computational chemistry courses</li>
-        </ul>
-      </section>
-
-      <section class="cv-section">
-        <h2>Conferences & Seminars</h2>
-        <div class="cv-entry" style="border-left:none;padding-left:0;">
-          <b>Oral Presentations:</b>
-          <ul>
-            <li>Hess Group, TU Berlin, 2024</li>
-            <li>Max Planck Institute for Polymer Research, 2024</li>
-            <li>Guest lecture, Utrecht University, 2024</li>
-            <li>KNCV Theoretical Chemistry Seminar, 2023</li>
-            <li>NCCC Netherlands’ Catalysis and Chemistry Conference, 2023</li>
-            <li>CHAINS, Netherlands, 2022</li>
-          </ul>
-          <b>Poster Presentations:</b>
-          <ul>
-            <li>Food groups, TU Berlin, 2024</li>
-            <li>Physical Chemistry/Molecular Materials Sciences, TU Berlin, 2024</li>
-            <li>Humboldt University Berlin, 2024</li>
-            <li>PNCCC, Netherlands, 2024</li>
-            <li>IUPAC/CHAINS - World Forum, The Hague, 2023</li>
-            <li>EuropaCat, Prague, 2023</li>
-            <li>KNCV Theoretical Chemistry Seminar, 2023</li>
-            <li>ICTAC, Lyon, France, 2022</li>
-            <li>NCCC, Noordwijkerhout, Netherlands, 2022</li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="cv-section">
-        <h2>Certifications</h2>
-        <ul class="cv-list">
-          <li>CECAM MolSim "Understanding Molecular Simulation", 2023</li>
-          <li>Han-sur-Lesse winter school for theoretical & computational chemistry, 2022</li>
-          <li>Paris International School on Advanced Computational Materials Science, 2021</li>
-        </ul>
-      </section>
-
-      <section class="cv-section">
-        <h2>Languages</h2>
-        <ul class="cv-list">
-          <li>English (Professional)</li>
-          <li>Hindi (Native)</li>
-          <li>Dutch (A2)</li>
-          <li>French (A1)</li>
-        </ul>
-      </section>
-
-      <section class="cv-section">
-        <h2>Hobbies</h2>
-        <ul class="cv-list">
-          <li>Soccer (Semi-Pro)</li>
-          <li>Chess (1590 Elo)</li>
-          <li>Photography</li>
-          <li>Trading (CFDs, stocks, crypto)</li>
-        </ul>
-      </section>
-
     </main>
     <footer class="site-footer" role="contentinfo">
       <div class="footer-inner">
