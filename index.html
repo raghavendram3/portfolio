@@ -132,35 +132,10 @@
     nav.site-nav a{ color:#666; transition: color .15s; }
     nav.site-nav a:hover{ color: #000; }
 
-    /* HERO - centered framed photo */
-    .hero {
-      margin: 48px 0 36px;
-      text-align: center;
-    }
-    /* frame: black outer border + white inner padding to match the double framed look */
-    .hero .frame{
-      display:inline-block;
-      background: #000;
-      padding: 8px;              /* black outer frame thickness */
-    }
-    .hero .frame .frame-inner{
-      background:#fff;
-      padding: 10px;             /* white inner padding */
-      display:block;
-    }
-    .hero img{
-      display:block;
-      max-width: 300px;         /* similar scale to screenshot */
-      width:100%;
-      height:auto;
-      object-fit:cover;
-      display:block;
-    }
-
-    /* Content area with two-column "bio / contact" split */
+    /* Content area with two-column "bio / photo+contact" split */
     .content-split{
       max-width: var(--site-width);
-      margin: 0 auto 48px;
+      margin: 48px auto 48px;
       display:grid;
       grid-template-columns: 1fr 320px;
       gap: 48px;
@@ -178,17 +153,36 @@
     .bio p { margin: 0 0 18px; }
     .bio strong{ font-family: Proxima, sans-serif; font-weight:700; }
 
-    /* Right: contact column with thin vertical divider and vertically-centred contact box */
+    /* Right: photo and contact column with thin vertical divider */
     .right-col {
       border-left: 1px solid var(--divider);
       padding-left: 28px;
       display:flex;
+      flex-direction: column;
       align-items:center;
-      justify-content:center;
-      min-height: 260px;
+      gap: 32px;
     }
 
-    /* Contact CTA box that matches the black badge in the screenshot */
+    /* Photo frame styling (moved from hero) */
+    .photo-frame{
+      background: #000;
+      padding: 8px;
+      display:inline-block;
+    }
+    .photo-frame .frame-inner{
+      background:#fff;
+      padding: 10px;
+      display:block;
+    }
+    .photo-frame img{
+      display:block;
+      max-width: 260px;
+      width:100%;
+      height:auto;
+      object-fit:cover;
+    }
+
+    /* Contact CTA box that matches the black badge */
     .contact-cta{
       background: var(--black);
       color: #fff;
@@ -199,7 +193,23 @@
       padding: 16px 36px;
       display:inline-block;
       font-size: 14px;
-      border: 4px solid #fff;   /* white border around the black box like template */
+      border: 4px solid #fff;
+      text-align: center;
+    }
+
+    .contact-info {
+      text-align: center;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .contact-info a {
+      color: var(--text);
+      text-decoration: underline;
+    }
+
+    .contact-info a:hover {
+      color: var(--black);
     }
 
     /* Footer - thin divider + copyright left, socials right */
@@ -226,7 +236,7 @@
     /* Responsive */
     @media (max-width:900px){
       .content-split{ grid-template-columns: 1fr; }
-      .right-col{ border-left: none; padding-left: 0; margin-top: 18px; min-height: auto; }
+      .right-col{ border-left: none; padding-left: 0; margin-top: 18px; }
       nav.site-nav{ justify-self: start; margin-top: 12px; text-align:left; }
       header.header-grid{ grid-template-columns: 1fr; }
     }
@@ -259,39 +269,41 @@
       <div class="header-divider" aria-hidden="true"></div>
     </header>
 
-    <!-- hero -->
+    <!-- content split: biography (left) and photo + contact (right) -->
     <main>
-      <section class="hero" role="main" aria-label="Hero">
-        <div class="frame">
-          <div class="frame-inner">
-            <img src="pp.jpg" alt="Raghavendra Meena portrait">
-          </div>
-        </div>
-      </section>
-
-      <!-- content split: biography (left) and contact box (right) -->
       <section class="content-split" aria-label="Main content">
         <article class="bio" aria-labelledby="about-heading">
           <h2 id="about-heading" style="font-family:Proxima, Arial, sans-serif; font-size:18px; margin-bottom:16px;">About</h2>
 
-          <p><strong>Raghavendra Meena</strong> is a doctoral researcher in the Biobased Chemistry & Technology group at Wageningen University & Research in the Netherlands. His PhD work began in October 2020 under the supervision of Prof. Harry J. Bitter, Prof. Han Zuilhof, and Dr. Guanna Li, under the project “Multiscale Modelling of Supported Metal Catalysts for Carbohydrate Upgrading.”</p>
+          <p><strong>Raghavendra Meena</strong> is a doctoral researcher in the Biobased Chemistry & Technology group at Wageningen University & Research in the Netherlands. His PhD work began in Octo[...]
 
-          <p>Meena’s research focuses on computational and theoretical approaches to sustainable catalysis. Key themes include:</p>
+          <p>Meena's research focuses on computational and theoretical approaches to sustainable catalysis. Key themes include:</p>
 
-          <p>• The design and characterization of transition metal carbides and oxy-carbides for biomass conversion, with special attention to hydrodeoxygenation reactions, where he has shown how surface oxy-domains affect catalytic activity and selectivity.</p>
+          <p>• The design and characterization of transition metal carbides and oxy-carbides for biomass conversion, with special attention to hydrodeoxygenation reactions, where he has shown how su[...]
 
           <p>• Mechano-catalytic methods for converting plastic waste under ambient conditions, including work on radical intermediates generated via mechanical activation of catalyst surfaces.</p>
 
-          <p>• Electrochemical transformations of bio-derived molecules, such as the regioselective bromination of methyl levulinate, where solvent effects lead to distinct product distributions.</p>
+          <p>• Electrochemical transformations of bio-derived molecules, such as the regioselective bromination of methyl levulinate, where solvent effects lead to distinct product distributions.</p[...]
 
-          <p>Prior to his PhD, Meena completed a BS-MS degree in Chemistry & Physics from IISER Pune, India, followed by a Master’s thesis (as a part of BS-MS degree) under the guidance of Prof. Michele Casula at Université Pierre et Marie Curie (Sorbonne Université), France, where he studied magnetic properties of narrow zigzag graphene nanoribbons using ab initio (including quantum Monte Carlo) methods.</p>
+          <p>Prior to his PhD, Meena completed a BS-MS degree in Chemistry & Physics from IISER Pune, India, followed by a Master's thesis (as a part of BS-MS degree) under the guidance of Prof. Mic[...]
 
-          <p>Outside research, he has interests in using machine learning / AI to accelerate computational materials discovery, and enjoys football, chess, trading, photography, and learning musical instruments.</p>
+          <p>Outside research, he has interests in using machine learning / AI to accelerate computational materials discovery, and enjoys football, chess, trading, photography, and learning musical i[...]
         </article>
 
         <aside class="right-col" aria-labelledby="contact-heading">
-          <div class="contact-cta" id="contact-heading">CONTACT</div><br>
-          <div><p>You can reach out to me on <a href="mailto:raghavendra.ip2020@gmail.com" aria-label="Email"><i class="fa fa-envelope"></i></a> for any queries.</p>
+          <!-- Photo moved here -->
+          <div class="photo-frame">
+            <div class="frame-inner">
+              <img src="pp.jpg" alt="Raghavendra Meena portrait">
+            </div>
+          </div>
+
+          <!-- Contact section -->
+          <div>
+            <div class="contact-cta" id="contact-heading">CONTACT</div>
+            <div class="contact-info">
+              <p>You can reach out to me on<br><a href="mailto:raghavendra.ip2020@gmail.com" aria-label="Email">raghavendra.ip2020@gmail.com</a><br>for any queries.</p>
+            </div>
           </div>
         </aside>
       </section>
