@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Photography | Raghavendra Meena</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Photography portfolio by Raghavendra Meena featuring urban landscapes, nature, and street photography from around the world.">
+  <meta name="keywords" content="photography, portfolio, landscape, urban, street photography, travel">
+  <meta name="author" content="Raghavendra Meena">
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Photography | Raghavendra Meena">
+  <meta property="og:description" content="Photography portfolio featuring urban landscapes, nature, and street photography.">
+  <meta property="og:url" content="https://raghavendram3.github.io/photography.html">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://raghavendram3.github.io/photography.html">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  
+  <!-- Lightbox Styles (optional enhancement) -->
+  <style>
+    /* Lightbox Modal */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+    
+    .lightbox.active {
+      display: flex;
+    }
+    
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 4px;
+      box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+    }
+    
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: #fff;
+      font-size: 32px;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    
+    .lightbox-close:hover {
+      opacity: 0.7;
+    }
+    
+    .gallery-item {
+      cursor: pointer;
+    }
+    
+    /* Loading state */
+    .gallery-grid.loading {
+      min-height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .gallery-grid.loading::after {
+      content: 'Loading images...';
+      color: var(--muted);
+      font-size: 14px;
+    }
+  </style>
+  
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5Q1C5BCJK9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5Q1C5BCJK9');
+  </script>
+</head>
+<body>
+  <!-- Skip Link for Accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  
+  <div class="wrap">
+    <!-- Header -->
+    <header class="header-grid" role="banner">
+      <div>
+        <a href="/" class="name-block">RAGHAVENDRA MEENA</a>
+        <span class="subtitle">computational materials scientist</span>
+      </div>
+      
+      <nav class="site-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/pubs.html">Publications</a></li>
+          <li><a href="/photography.html" aria-current="page">Photography</a></li>
+          <li><a href="/cv.html">CV</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+      </nav>
+      
+      <div class="header-divider" aria-hidden="true"></div>
+    </header>
+    
+    <!-- Main Content -->
+    <main id="main-content">
+      <section class="content-split" aria-label="Photography Gallery">
+        <article class="photo-list" aria-labelledby="gallery-heading">
+          <h2 id="gallery-heading">Gallery</h2>
+          <div class="gallery-grid loading" id="photoGallery" role="list" aria-label="Photo gallery">
+            <!-- Images loaded dynamically via JavaScript -->
+          </div>
+          
+          <div class="about-section">
+            <h2>About My Photography</h2>
+            <p>
+              Through my lens, I explore the intricate details of urban landscapes, the serenity of natural wonders, and the vibrant energy of street life. These photographs are available for non-commercial, personal use. Please contact me for prints or collaborations.
+            </p>
+          </div>
+        </article>
+        
+        <aside class="right-col right-col--centered" aria-labelledby="contact-cta">
+          <a href="/#contact" class="contact-cta" id="contact-cta">Contact</a>
+        </aside>
+      </section>
+    </main>
+    
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+      <span class="lightbox-close" aria-label="Close lightbox">&times;</span>
+      <img src="" alt="" id="lightbox-img">
+    </div>
+    
+    <!-- Footer -->
+    <footer class="site-footer" role="contentinfo">
+      <div class="footer-inner">
+        <div>&copy; <span id="year">2025</span> Raghavendra Meena. All rights reserved.</div>
+        <div class="socials" aria-label="Social links">
+          <a href="https://www.linkedin.com/in/raghavendra-meena/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+          </a>
+          <a href="https://www.instagram.com/raghavendram3" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+          </a>
+          <a href="https://scholar.google.com/citations?user=e-ZYru0AAAAJ&hl=en" aria-label="Google Scholar" target="_blank" rel="noopener noreferrer">
+            <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+          </a>
+          <a href="https://github.com/raghavendram3/" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-github" aria-hidden="true"></i>
+          </a>
+          <a href="mailto:raghavendra.meena@wur.nl" aria-label="Email">
+            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Dynamic Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // Image descriptions mapping (filename -> descriptive alt text)
+    const imageDescriptions = {
+      '20151121.jpg': 'Early photography work from 2015',
+      'DSC_0069.jpg': 'Landscape photography',
+      'DSC_0079.jpg': 'Nature scene',
+      'DSC_0082.jpg': 'Scenic landscape view',
+      'DSC_0084.jpg': 'Natural landscape',
+      'IMG_20210831_180425.jpg': 'Evening golden hour photography',
+      'IMG_20210904_204541.jpg': 'Night photography',
+      'IMG_20210904_215804.jpg': 'Late evening urban scene',
+      'IMG_20210905_144647.jpg': 'Afternoon sunlight photography',
+      'WA0001.jpg': 'Street photography',
+      'WA0005.jpg': 'Urban street scene',
+      'WA0007.jpg': 'City photography',
+      'WA0008.jpg': 'Street view photography',
+      'IMG_20210901_202844__01-EFFECTS.jpg': 'Artistic photography with special effects',
+      'italia.jpg': 'Italian landscape and architecture',
+      'Lisbon.jpg': 'Lisbon, Portugal architecture and streets',
+      'new.jpg': 'New photography work',
+      'paris.jpg': 'Paris cityscape view',
+      'berlin.jpg': 'Berlin urban scene',
+      'fkf.jpg': 'Urban photography',
+      'Moon.jpg': 'Moon photography'
+    };
+    
+    // Helper function to get alt text from filename
+    function getAltText(filepath) {
+      const filename = filepath.split('/').pop();
+      return imageDescriptions[filename] || `Photography by Raghavendra Meena`;
+    }
+    
+    // Gallery Element
+    const gallery = document.getElementById('photoGallery');
+    
+    // Load images from JSON file
+    fetch('/images.json')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Could not load images.json');
+        }
+        return response.json();
+      })
+      .then(images => {
+        gallery.classList.remove('loading');
+        
+        images.forEach((imagePath, index) => {
+          const item = document.createElement('div');
+          item.className = 'gallery-item';
+          item.setAttribute('role', 'listitem');
+          item.setAttribute('tabindex', '0');
+          
+          const img = document.createElement('img');
+          img.src = '/' + imagePath;
+          img.alt = getAltText(imagePath);
+          img.loading = 'lazy';
+          img.decoding = 'async';
+          
+          item.appendChild(img);
+          gallery.appendChild(item);
+          
+          // Click handler for lightbox
+          item.addEventListener('click', () => openLightbox(img.src, img.alt));
+          
+          // Keyboard accessibility
+          item.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              openLightbox(img.src, img.alt);
+            }
+          });
+        });
+      })
+      .catch(error => {
+        console.error('Error loading images:', error);
+        gallery.classList.remove('loading');
+        gallery.innerHTML = '<p style="color: var(--muted); padding: 20px;">Unable to load gallery images. Please try refreshing the page.</p>';
+      });
+    
+    // Lightbox functionality
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxClose = document.querySelector('.lightbox-close');
+    
+    function openLightbox(src, alt) {
+      lightboxImg.src = src;
+      lightboxImg.alt = alt;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      lightboxClose.focus();
+    }
+    
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    
+    lightbox.addEventListener('click', closeLightbox);
+    lightboxClose.addEventListener('click', closeLightbox);
+    
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+        closeLightbox();
+      }
+    });
+    
+    // Prevent closing when clicking on the image itself
+    lightboxImg.addEventListener('click', (e) => {
+      e.stopPropagation();
+    });
+  </script>
+</body>
+</html>
