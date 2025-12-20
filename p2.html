@@ -1,32 +1,21 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Publications | Raghavendra Meena</title>
   
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="List of publications by Raghavendra Meena in computational chemistry, catalysis, and materials science. Published in JACS, ACS Catalysis, Angewandte Chemie, and more.">
-  <meta name="keywords" content="publications, research papers, computational chemistry, catalysis, DFT, Wageningen University">
+  <meta name="description" content="Research publications by Raghavendra Meena in computational chemistry, catalysis, and materials science.">
   <meta name="author" content="Raghavendra Meena">
   
-  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Publications | Raghavendra Meena">
-  <meta property="og:description" content="Research publications in computational chemistry, catalysis, and materials science.">
-  <meta property="og:url" content="https://raghavendram3.github.io/pubs.html">
+  <meta property="og:description" content="Research publications in computational chemistry and catalysis.">
   
-  <!-- Canonical URL -->
   <link rel="canonical" href="https://raghavendram3.github.io/pubs.html">
-  
-  <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  
-  <!-- Stylesheets -->
   <link rel="stylesheet" href="/styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
   
-  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-5Q1C5BCJK9"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -36,227 +25,264 @@
   </script>
 </head>
 <body>
-  <!-- Skip Link for Accessibility -->
-  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <a href="#main" class="skip-link">Skip to main content</a>
   
-  <div class="wrap">
+  <div class="page-wrapper">
     <!-- Header -->
-    <header class="header-grid" role="banner">
-      <div>
-        <a href="/" class="name-block">RAGHAVENDRA MEENA</a>
-        <span class="subtitle">computational materials scientist</span>
+    <header class="site-header" id="header">
+      <div class="container">
+        <div class="header-inner">
+          <a href="/" class="site-logo">
+            <span class="site-logo__name">Raghavendra Meena</span>
+            <span class="site-logo__title">Computational Scientist</span>
+          </a>
+          
+          <nav class="site-nav" aria-label="Main navigation">
+            <ul class="site-nav__list">
+              <li><a href="/" class="site-nav__link">Home</a></li>
+              <li><a href="/pubs.html" class="site-nav__link" aria-current="page">Publications</a></li>
+              <li><a href="/photography.html" class="site-nav__link">Photography</a></li>
+              <li><a href="/cv.html" class="site-nav__link">CV</a></li>
+              <li><a href="/#contact" class="site-nav__link">Contact</a></li>
+            </ul>
+          </nav>
+          
+          <button class="menu-toggle" aria-label="Toggle menu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+        </div>
       </div>
-      
-      <nav class="site-nav" aria-label="Main navigation">
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/pubs.html" aria-current="page">Publications</a></li>
-          <li><a href="/photography.html">Photography</a></li>
-          <li><a href="/cv.html">CV</a></li>
-          <li><a href="/#contact">Contact</a></li>
-        </ul>
-      </nav>
-      
-      <div class="header-divider" aria-hidden="true"></div>
     </header>
 
-    <!-- Main Content -->
-    <main id="main-content">
-      <section class="content-split" aria-label="Publications and Contact">
-        <article aria-labelledby="pubs-heading">
-          <h2 id="pubs-heading">List of Publications</h2>
+    <main id="main">
+      <!-- Publications Header -->
+      <section class="cv-header">
+        <div class="container">
+          <div class="section__header">
+            <span class="section__label">Research Output</span>
+            <h1 class="section__title">Publications</h1>
+          </div>
+          <p style="color: var(--text-secondary); font-size: 1.125rem; max-width: 600px; margin-top: var(--space-md);">
+            Peer-reviewed articles in computational chemistry, catalysis, and materials science. 
+            Published in JACS, ACS Catalysis, Angewandte Chemie, and more.
+          </p>
+        </div>
+      </section>
 
-          <ol class="pubs-list" reversed>
-            <!-- CEJ RWGS paper 2025 -->
-            <li class="publication">
-              <h3 class="pub-title">Towards improved activity and stability in RWGS reaction: Dispersed copper in mesoporous alumina matrix as a strategy for enhanced performance</h3>
-              <div class="meta-row">
-                <span class="pub-journal">Chemical Engineering Journal</span>
-                <span class="pub-year">(2025)</span>
-              </div>
-              <p class="pub-authors">Shiju, N. R.; Mathew, T.; Meena, R.; Purcell, Li, G. et al.</p>
-              <div class="pub-details">
-                <a href="publications/CEJ_2025.pdf">PDF</a>
-                <a href="https://doi.org/10.1016/j.cej.2025.169863" target="_blank" rel="noopener noreferrer">DOI: 10.1016/j.cej.2025.169863</a>
-              </div>
-            </li>
+      <!-- Publications List -->
+      <section class="section">
+        <div class="container">
+          <div class="publications-list">
             
-            <!-- ML Descriptors paper 2025 -->
-            <li class="publication">
-              <h3 class="pub-title">Activity Descriptors of Mo2C-based Catalysts for C-OH Bond Activation</h3>
-              <div class="meta-row">
-                <span class="pub-journal">ChemRxiv</span>
-                <span class="pub-year">(2025)</span>
+            <article class="pub-item animate-on-scroll">
+              <div class="pub-item__number"></div>
+              <div class="pub-item__content">
+                <h2 class="pub-item__title">Towards improved activity and stability in RWGS reaction: Dispersed copper in mesoporous alumina matrix</h2>
+                <div class="pub-item__meta">
+                  <span class="pub-item__journal">Chemical Engineering Journal</span>
+                  <span class="pub-item__year">2025</span>
+                </div>
+                <p class="pub-item__authors">Shiju, N. R.; Mathew, T.; Meena, R.; Purcell, Li, G. et al.</p>
+                <div class="pub-item__links">
+                  <a href="publications/CEJ_2025.pdf" class="pub-item__link">PDF</a>
+                  <a href="https://doi.org/10.1016/j.cej.2025.169863" class="pub-item__link" target="_blank" rel="noopener">DOI</a>
+                </div>
               </div>
-              <p class="pub-authors">Meena, R.; Purcell, J. M.; Kluijtmans, W.; Zuilhof, H.; Bitter, J. H.; Ouyang, R.; Li, G.</p>
-              <div class="pub-details">
-                <a href="publications/ChemRxiv_2025.pdf">PDF</a>
-                <a href="https://doi.org/10.26434/chemrxiv-2025-pg52l" target="_blank" rel="noopener noreferrer">DOI: 10.26434/chemrxiv-2025-pg52l</a>
-              </div>
-            </li>
+            </article>
 
-            <!-- ChemCatChem Front Cover 2025 -->
-            <li class="publication">
-              <h3 class="pub-title">Front Cover: Rationalizing Catalytic Performances of Mo/W‐(Oxy)Carbides for Hydrodeoxygenation Reaction</h3>
-              <div class="meta-row">
-                <span class="pub-journal">ChemCatChem</span>
-                <span class="pub-year">(2025)</span>
+            <article class="pub-item animate-on-scroll">
+              <div class="pub-item__number"></div>
+              <div class="pub-item__content">
+                <h2 class="pub-item__title">Activity Descriptors of Mo2C-based Catalysts for C-OH Bond Activation</h2>
+                <div class="pub-item__meta">
+                  <span class="pub-item__journal">ChemRxiv</span>
+                  <span class="pub-item__year">2025</span>
+                </div>
+                <p class="pub-item__authors">Meena, R.; Purcell, J. M.; Kluijtmans, W.; Zuilhof, H.; Bitter, J. H.; Ouyang, R.; Li, G.</p>
+                <div class="pub-item__links">
+                  <a href="publications/ChemRxiv_2025.pdf" class="pub-item__link">PDF</a>
+                  <a href="https://doi.org/10.26434/chemrxiv-2025-pg52l" class="pub-item__link" target="_blank" rel="noopener">DOI</a>
+                </div>
               </div>
-              <p class="pub-authors">Meena, R.; Draijer, K. M.; van Dam, B.; Zuilhof, H.; Bitter, J. H.; Li, G.</p>
-              <div class="pub-details">
-                <a href="publications/ChemCatChem_2025_Front_Cover.pdf">PDF</a>
-                <a href="https://doi.org/10.1002/cctc.70272" target="_blank" rel="noopener noreferrer">DOI: 10.1002/cctc.70272</a>
-              </div>
-            </li>
+            </article>
 
-            <!-- ChemCatChem 2025 -->
-            <li class="publication">
-              <h3 class="pub-title">Rationalizing Catalytic Performances of Mo/W‐(Oxy)Carbides for Hydrodeoxygenation Reaction</h3>
-              <div class="meta-row">
-                <span class="pub-journal">ChemCatChem</span>
-                <span class="pub-year">(2025)</span>
+            <article class="pub-item animate-on-scroll">
+              <div class="pub-item__number"></div>
+              <div class="pub-item__content">
+                <h2 class="pub-item__title">Rationalizing Catalytic Performances of Mo/W‐(Oxy)Carbides for Hydrodeoxygenation Reaction</h2>
+                <div class="pub-item__meta">
+                  <span class="pub-item__journal">ChemCatChem</span>
+                  <span class="pub-item__year">2025</span>
+                  <span style="background: var(--accent-subtle); color: var(--accent); padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 500;">Front Cover</span>
+                </div>
+                <p class="pub-item__authors">Meena, R.; Draijer, K. M.; van Dam, B.; Zuilhof, H.; Bitter, J. H.; Li, G.</p>
+                <div class="pub-item__links">
+                  <a href="publications/ChemCatChem_2025.pdf" class="pub-item__link">PDF</a>
+                  <a href="https://doi.org/10.1002/cctc.202500659" class="pub-item__link" target="_blank" rel="noopener">DOI</a>
+                </div>
               </div>
-              <p class="pub-authors">Meena, R.; Draijer, K. M.; van Dam, B.; Zuilhof, H.; Bitter, J. H.; Li, G.</p>
-              <div class="pub-details">
-                <a href="publications/ChemCatChem_2025.pdf">PDF</a>
-                <a href="https://doi.org/10.1002/cctc.202500659" target="_blank" rel="noopener noreferrer">DOI: 10.1002/cctc.202500659</a>
-              </div>
-            </li>
+            </article>
 
-            <!-- Chemical Science 2025 -->
-            <li class="publication">
-              <h3 class="pub-title">Homolytic fracture of inorganic crystalline materials enhances the mechano-chemical degradation of polypropylene</h3>
-              <div class="meta-row">
-                <span class="pub-journal">Chemical Science</span>
-                <span class="pub-year">(2025)</span>
+            <article class="pub-item animate-on-scroll">
+              <div class="pub-item__number"></div>
+              <div class="pub-item__content">
+                <h2 class="pub-item__title">Homolytic fracture of inorganic crystalline materials enhances the mechano-chemical degradation of polypropylene</h2>
+                <div class="pub-item__meta">
+                  <span class="pub-item__journal">Chemical Science</span>
+                  <span class="pub-item__year">2025</span>
+                </div>
+                <p class="pub-item__authors">Hergesell, A. H.; Popp, S.; Meena, R.; Guarin, V. M. O.; Seitzinger, C. L.; Sievers, C.; Li, G.; Vollmer, I.</p>
+                <div class="pub-item__links">
+                  <a href="publications/ChemScience_2025.pdf" class="pub-item__link">PDF</a>
+                  <a href="https://doi.org/10.1039/d5sc03348a" class="pub-item__link" target="_blank" rel="noopener">DOI</a>
+                </div>
               </div>
-              <p class="pub-authors">Hergesell, A. H.; Popp, S.; Meena, R.; Guarin, V. M. O.; Seitzinger, C. L.; Sievers, C.; Li, G.; Vollmer, I.</p>
-              <div class="pub-details">
-                <a href="publications/ChemScience_2025.pdf">PDF</a>
-                <a href="https://doi.org/10.1039/d5sc03348a" target="_blank" rel="noopener noreferrer">DOI: 10.1039/d5sc03348a</a>
-              </div>
-            </li>
+            </article>
 
-            <!-- RSC Sustainability 2025 -->
-            <li class="publication">
-              <h3 class="pub-title">Medium-dependent regioselectivity of electrochemical bromination of methyl levulinate</h3>
-              <div class="meta-row">
-                <span class="pub-journal">RSC Sustainability</span>
-                <span class="pub-year">(2025)</span>
+            <article class="pub-item animate-on-scroll">
+              <div class="pub-item__number"></div>
+              <div class="pub-item__content">
+                <h2 class="pub-item__title">Medium-dependent regioselectivity of electrochemical bromination of methyl levulinate</h2>
+                <div class="pub-item__meta">
+                  <span class="pub-item__journal">RSC Sustainability</span>
+                  <span class="pub-item__year">2025</span>
+                </div>
+                <p class="pub-item__authors">Pirgach, D. A.; Meena, R.; Li, G.; Miloserdov, F. M.; van Es, D. S.; Bruijnincx, P. C. A.; Bitter, J. H.</p>
+                <div class="pub-item__links">
+                  <a href="publications/RSC_Elec_2025.pdf" class="pub-item__link">PDF</a>
+                  <a href="https://doi.org/10.1039/d5su00037h" class="pub-item__link" target="_blank" rel="noopener">DOI</a>
+                </div>
               </div>
-              <p class="pub-authors">Pirgach, D. A.; Meena, R.; Li, G.; Miloserdov, F. M.; van Es, D. S.; Bruijnincx, P. C. A.; Bitter, J. H.</p>
-              <div class="pub-details">
-                <a href="publications/RSC_Elec_2025.pdf">PDF</a>
-                <a href="https://doi.org/10.1039/d5su00037h" target="_blank" rel="noopener noreferrer">DOI: 10.1039/d5su00037h</a>
-              </div>
-            </li>
+            </article>
 
-            <!-- JACS 2024 -->
-            <li class="publication">
-              <h3 class="pub-title">Surface-Activated Mechano-Catalysis for Ambient Conversion of Plastic Waste</h3>
-              <div class="meta-row">
-                <span class="pub-journal">Journal of the American Chemical Society</span>
-                <span class="pub-year">(2024)</span>
+            <article class="pub-item animate-on-scroll">
+              <div class="pub-item__number"></div>
+              <div class="pub-item__content">
+                <h2 class="pub-item__title">Surface-Activated Mechano-Catalysis for Ambient Conversion of Plastic Waste</h2>
+                <div class="pub-item__meta">
+                  <span class="pub-item__journal">Journal of the American Chemical Society</span>
+                  <span class="pub-item__year">2024</span>
+                </div>
+                <p class="pub-item__authors">Hergesell, A. H.; Baarslag, R. J.; Seitzinger, C. L.; Meena, R.; Schara, P.; Tomović, Ž.; Li, G.; Weckhuysen, B. M.; Vollmer, I.</p>
+                <div class="pub-item__links">
+                  <a href="publications/JACS_2024.pdf" class="pub-item__link">PDF</a>
+                  <a href="https://doi.org/10.1021/jacs.4c07157" class="pub-item__link" target="_blank" rel="noopener">DOI</a>
+                </div>
               </div>
-              <p class="pub-authors">Hergesell, A. H.; Baarslag, R. J.; Seitzinger, C. L.; Meena, R.; Schara, P.; Tomović, Ž.; Li, G.; Weckhuysen, B. M.; Vollmer, I.</p>
-              <div class="pub-details">
-                <a href="publications/JACS_2024.pdf">PDF</a>
-                <a href="https://doi.org/10.1021/jacs.4c07157" target="_blank" rel="noopener noreferrer">DOI: 10.1021/jacs.4c07157</a>
-              </div>
-            </li>
+            </article>
 
-            <!-- ACS Catalysis 2023 -->
-            <li class="publication">
-              <h3 class="pub-title">Toward the Rational Design of More Efficient Mo2C Catalysts for Hydrodeoxygenation–Mechanism and Descriptor Identification</h3>
-              <div class="meta-row">
-                <span class="pub-journal">ACS Catalysis</span>
-                <span class="pub-year">(2023)</span>
+            <article class="pub-item animate-on-scroll">
+              <div class="pub-item__number"></div>
+              <div class="pub-item__content">
+                <h2 class="pub-item__title">Toward the Rational Design of More Efficient Mo2C Catalysts for Hydrodeoxygenation</h2>
+                <div class="pub-item__meta">
+                  <span class="pub-item__journal">ACS Catalysis</span>
+                  <span class="pub-item__year">2023</span>
+                </div>
+                <p class="pub-item__authors">Meena, R.; Bitter, J. H.; Zuilhof, H.; Li, G.</p>
+                <div class="pub-item__links">
+                  <a href="publications/ACS_Catalysis_2023.pdf" class="pub-item__link">PDF</a>
+                  <a href="https://doi.org/10.1021/acscatal.3c03728" class="pub-item__link" target="_blank" rel="noopener">DOI</a>
+                </div>
               </div>
-              <p class="pub-authors">Meena, R.; Bitter, J. H.; Zuilhof, H.; Li, G.</p>
-              <div class="pub-details">
-                <a href="publications/ACS_Catalysis_2023.pdf">PDF</a>
-                <a href="https://doi.org/10.1021/acscatal.3c03728" target="_blank" rel="noopener noreferrer">DOI: 10.1021/acscatal.3c03728</a>
-              </div>
-            </li>
+            </article>
 
-            <!-- Angewandte Chemie 2023 -->
-            <li class="publication">
-              <h3 class="pub-title">Revealing Active Sites and Reaction Pathways in Methane Non‐Oxidative Coupling over Iron‐Containing Zeolites</h3>
-              <div class="meta-row">
-                <span class="pub-journal">Angewandte Chemie International Edition</span>
-                <span class="pub-year">(2023)</span>
+            <article class="pub-item animate-on-scroll">
+              <div class="pub-item__number"></div>
+              <div class="pub-item__content">
+                <h2 class="pub-item__title">Revealing Active Sites and Reaction Pathways in Methane Non‐Oxidative Coupling over Iron‐Containing Zeolites</h2>
+                <div class="pub-item__meta">
+                  <span class="pub-item__journal">Angewandte Chemie International Edition</span>
+                  <span class="pub-item__year">2023</span>
+                </div>
+                <p class="pub-item__authors">Zhang, H.; Bolshakov, A.; Meena, R.; Garcia, G. A.; Dugulan, A. I.; Parastaev, A.; Li, G.; Hensen, E. J. M.; Kosinov, N.</p>
+                <div class="pub-item__links">
+                  <a href="publications/AngewChem_2023.pdf" class="pub-item__link">PDF</a>
+                  <a href="https://doi.org/10.1002/anie.202306196" class="pub-item__link" target="_blank" rel="noopener">DOI</a>
+                </div>
               </div>
-              <p class="pub-authors">Zhang, H.; Bolshakov, A.; Meena, R.; Garcia, G. A.; Dugulan, A. I.; Parastaev, A.; Li, G.; Hensen, E. J. M.; Kosinov, N.</p>
-              <div class="pub-details">
-                <a href="publications/AngewChem_2023.pdf">PDF</a>
-                <a href="https://doi.org/10.1002/anie.202306196" target="_blank" rel="noopener noreferrer">DOI: 10.1002/anie.202306196</a>
-              </div>
-            </li>
+            </article>
 
-            <!-- JCP 2022 -->
-            <li class="publication">
-              <h3 class="pub-title">Ground-state properties of the narrowest zigzag graphene nanoribbon from quantum Monte Carlo and comparison with density functional theory</h3>
-              <div class="meta-row">
-                <span class="pub-journal">Journal of Chemical Physics</span>
-                <span class="pub-year">(2022)</span>
+            <article class="pub-item animate-on-scroll">
+              <div class="pub-item__number"></div>
+              <div class="pub-item__content">
+                <h2 class="pub-item__title">Ground-state properties of the narrowest zigzag graphene nanoribbon from quantum Monte Carlo</h2>
+                <div class="pub-item__meta">
+                  <span class="pub-item__journal">Journal of Chemical Physics</span>
+                  <span class="pub-item__year">2022</span>
+                </div>
+                <p class="pub-item__authors">Meena, R.; Li, G.; Casula, M.</p>
+                <div class="pub-item__links">
+                  <a href="publications/JCP_2022.pdf" class="pub-item__link">PDF</a>
+                  <a href="https://doi.org/10.1063/5.0078234" class="pub-item__link" target="_blank" rel="noopener">DOI</a>
+                </div>
               </div>
-              <p class="pub-authors">Meena, R.; Li, G.; Casula, M.</p>
-              <div class="pub-details">
-                <a href="publications/JCP_2022.pdf">PDF</a>
-                <a href="https://doi.org/10.1063/5.0078234" target="_blank" rel="noopener noreferrer">DOI: 10.1063/5.0078234</a>
-              </div>
-            </li>
+            </article>
 
-            <!-- JPCA 2021 -->
-            <li class="publication">
-              <h3 class="pub-title">Comparison of RNC Coupling and CO Coupling Mediated by Cr–Cr Quintuple Bond and B–B Multiple Bonds: Main Group Metallomimetics</h3>
-              <div class="meta-row">
-                <span class="pub-journal">Journal of Physical Chemistry A</span>
-                <span class="pub-year">(2021)</span>
+            <article class="pub-item animate-on-scroll">
+              <div class="pub-item__number"></div>
+              <div class="pub-item__content">
+                <h2 class="pub-item__title">Comparison of RNC Coupling and CO Coupling Mediated by Cr–Cr Quintuple Bond and B–B Multiple Bonds</h2>
+                <div class="pub-item__meta">
+                  <span class="pub-item__journal">Journal of Physical Chemistry A</span>
+                  <span class="pub-item__year">2021</span>
+                </div>
+                <p class="pub-item__authors">Ghorai, S.; Meena, R.; Joseph, A. P.; Jemmis, E. D.</p>
+                <div class="pub-item__links">
+                  <a href="publications/RNCandCO_JPCA_2021.pdf" class="pub-item__link">PDF</a>
+                  <a href="https://doi.org/10.1021/acs.jpca.1c05185" class="pub-item__link" target="_blank" rel="noopener">DOI</a>
+                </div>
               </div>
-              <p class="pub-authors">Ghorai, S.; Meena, R.; Joseph, A. P.; Jemmis, E. D.</p>
-              <div class="pub-details">
-                <a href="publications/RNCandCO_JPCA_2021.pdf">PDF</a>
-                <a href="https://doi.org/10.1021/acs.jpca.1c05185" target="_blank" rel="noopener noreferrer">DOI: 10.1021/acs.jpca.1c05185</a>
-              </div>
-            </li>
-          </ol>
-        </article>
+            </article>
 
-        <aside class="right-col right-col--centered" aria-labelledby="contact-cta">
-          <a href="/#contact" class="contact-cta" id="contact-cta">Contact</a>
-        </aside>
+          </div>
+        </div>
       </section>
     </main>
 
     <!-- Footer -->
-    <footer class="site-footer" role="contentinfo">
-      <div class="footer-inner">
-        <div>&copy; <span id="year">2025</span> Raghavendra Meena. All rights reserved.</div>
-        <div class="socials" aria-label="Social links">
-          <a href="https://www.linkedin.com/in/raghavendra-meena/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
-            <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
-          </a>
-          <a href="https://www.instagram.com/raghavendram3" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
-            <i class="fa-brands fa-instagram" aria-hidden="true"></i>
-          </a>
-          <a href="https://scholar.google.com/citations?user=e-ZYru0AAAAJ&hl=en" aria-label="Google Scholar" target="_blank" rel="noopener noreferrer">
-            <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
-          </a>
-          <a href="https://github.com/raghavendram3/" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
-            <i class="fa-brands fa-github" aria-hidden="true"></i>
-          </a>
-          <a href="mailto:raghavendra.meena@wur.nl" aria-label="Email">
-            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
-          </a>
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-inner">
+          <p class="footer__copyright">© <span id="year">2025</span> Raghavendra Meena</p>
+          <div class="footer__socials">
+            <a href="https://www.linkedin.com/in/raghavendra-meena/" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="https://github.com/raghavendram3/" class="social-link" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+            <a href="https://scholar.google.com/citations?user=e-ZYru0AAAAJ&hl=en" class="social-link" aria-label="Google Scholar" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
+            </a>
+            <a href="mailto:raghavendra.meena@wur.nl" class="social-link" aria-label="Email">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </a>
+          </div>
         </div>
       </div>
     </footer>
   </div>
 
-  <!-- Dynamic Year Script -->
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+    
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 50);
+    });
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
   </script>
 </body>
 </html>
