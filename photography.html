@@ -1,129 +1,317 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Photography | Raghavendra Meena</title>
-  <meta name="description" content="Photography portfolio by Raghavendra Meena">
-  <link rel="stylesheet" href="/styles.css">
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5Q1C5BCJK9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5Q1C5BCJK9');
+</script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Raghavendra Meena - Photography</title>
+  <style>
+    @font-face {
+      font-family: "Proxima";
+      src: url("https://static.parastorage.com/fonts/v2/c24fcada-6239-48bc-8b88-9288338191c9/v1/proxima-n-w01-reg.woff2") format("woff2");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "AvenirLight";
+      src: url("https://static.parastorage.com/fonts/v2/af36905f-3c92-4ef9-b0c1-f91432f16ac1/v1/avenir-lt-w05_35-light.woff2") format("woff2");
+      font-weight: 300;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "AvenirHeavy";
+      src: url("https://static.parastorage.com/fonts/v2/74290729-59ae-4129-87d0-2eec3974dce1/v1/avenir-lt-w01_85-heavy.woff2") format("woff2");
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    :root{
+      --site-width: 980px;
+      --muted: #8f8f8f;
+      --divider: #dcdcdc;
+      --black: #111;
+      --text: #333;
+      --accent: #e74c3c;
+      --gallery-bg: #fafbfc;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:#fff;
+      color:var(--text);
+      font-family: AvenirLight, Proxima, "Helvetica Neue", Arial, sans-serif;
+      font-size:15px;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.6;
+    }
+    a{color:inherit;text-decoration:none}
+
+    .wrap{max-width:var(--site-width);margin:0 auto;padding:28px 18px 80px;}
+
+    header.header-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      align-items:start;
+      gap: 12px;
+      padding-bottom: 18px;
+    }
+    .name-block {
+      display:inline-block;
+      background: var(--black);
+      color: #fff;
+      font-family: Proxima, "Helvetica Neue", Arial, sans-serif;
+      font-weight:500;
+      font-size:30px;
+      line-height:0.7;
+      padding: 6px 10px;
+      letter-spacing: 0;
+      margin-bottom: 8px;
+    }
+    .subtitle {
+      display:block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: 0.05em;
+    }
+    .header-divider {
+      grid-column: 1 / -1;
+      border-top: 1px solid var(--divider);
+      margin-top: 20px;
+    }
+    nav.site-nav {
+      justify-self: end;
+      align-self: center;
+      text-align: right;
+      margin-top: 2px;
+    }
+    nav.site-nav ul{
+      list-style:none;
+      display:inline-flex;
+      gap: 18px;
+      padding:0;
+      margin:0;
+      align-items:center;
+      font-family: Proxima, "Helvetica Neue", Arial, sans-serif;
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:0.04em;
+    }
+    nav.site-nav li{
+      padding:0 10px;
+      color: #666;
+      height:24px;
+      display:flex;
+      align-items:center;
+    }
+    nav.site-nav li + li { border-left: 1px solid var(--divider); margin-left: 8px; padding-left: 18px; }
+    nav.site-nav a{ color:#666; transition: color .15s; }
+    nav.site-nav a:hover{ color: #000; }
+
+    /* Gallery Section */
+    .content-split{
+      max-width: var(--site-width);
+      margin: 0 auto 48px;
+      display:grid;
+      grid-template-columns: 1fr 320px;
+      gap: 48px;
+      align-items:start;
+      padding: 0 18px;
+    }
+    @media (max-width:900px){
+      .content-split{ grid-template-columns: 1fr; }
+      .right-col{ border-left: none; padding-left: 0; margin-top: 18px; min-height: auto; }
+      nav.site-nav{ justify-self: start; margin-top: 12px; text-align:left; }
+      header.header-grid{ grid-template-columns: 1fr; }
+    }
+
+    .photo-list h2 {
+      font-family: Proxima, Arial, sans-serif;
+      font-size: 20px;
+      margin-bottom: 20px;
+      letter-spacing: 0.01em;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 22px 22px;
+      background: var(--gallery-bg);
+      padding: 15px 0 10px 0;
+      border-radius: 8px;
+      margin-bottom: 32px;
+    }
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      transition: box-shadow 0.2s, transform 0.2s;
+      background: #fff;
+    }
+    .gallery-item:hover {
+      box-shadow: 0 8px 30px rgba(44,62,80,0.08);
+      transform: translateY(-5px) scale(1.01);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .photo-list .about-section {
+      margin-top: 42px;
+      margin-bottom: 18px;
+    }
+    .photo-list .about-section h2 {
+      margin-top: 0;
+      margin-bottom: 12px;
+    }
+    .photo-list .about-section p {
+      color: var(--muted);
+      font-size: 15px;
+      margin: 0;
+    }
+
+    /* Contact column */
+    .right-col {
+      border-left: 1px solid var(--divider);
+      padding-left: 28px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height: 260px;
+    }
+    .contact-cta{
+      background: var(--black);
+      color: #fff;
+      font-family: Proxima, sans-serif;
+      font-weight:700;
+      text-transform:uppercase;
+      letter-spacing:0.12em;
+      padding: 16px 36px;
+      display:inline-block;
+      font-size: 14px;
+      border: 4px solid #fff;
+    }
+    /* Footer */
+    footer.site-footer{
+      border-top: 1px solid var(--divider);
+      padding: 28px 18px;
+      margin-top: 32px;
+    }
+    .footer-inner{
+      max-width:var(--site-width);
+      margin:0 auto;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap: 12px;
+      color: var(--muted);
+      font-size:14px;
+      padding: 0 2px;
+    }
+    .socials{ display:inline-flex; gap:18px; align-items:center; }
+    .socials a{ color: var(--muted); font-size:18px; display:inline-block; }
+    .socials a:hover{ color:#000; }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-  <a href="#main" class="skip-link">Skip to main content</a>
-  
-  <div class="page-wrapper">
-    <header class="site-header" id="header">
-      <div class="container">
-        <div class="header-inner">
-          <a href="/" class="site-logo">
-            <span class="site-logo__name">Raghavendra Meena</span>
-            <span class="site-logo__title">Computational Materials Scientist</span>
-          </a>
-          <nav class="site-nav">
-            <ul class="site-nav__list">
-              <li><a href="/" class="site-nav__link">Home</a></li>
-              <li><a href="/pubs.html" class="site-nav__link">Publications</a></li>
-              <li><a href="/photography.html" class="site-nav__link" aria-current="page">Photography</a></li>
-              <li><a href="/cv.html" class="site-nav__link">CV</a></li>
-              <li><a href="/#contact" class="site-nav__link">Contact</a></li>
-            </ul>
-          </nav>
-        </div>
+  <div class="wrap">
+    <!-- header -->
+    <header class="header-grid" role="banner">
+      <div>
+        <span class="name-block">RAGHAVENDRA MEENA</span>
+        <div class="subtitle">computational materials scientist</div>
       </div>
+      <nav class="site-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/pubs.html">Publications</a></li>
+          <li><a href="/photography.html">Photography</a></li>
+          <li><a href="/cv.html">CV</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-divider" aria-hidden="true"></div>
     </header>
-
-    <main id="main">
-      <section class="gallery-header">
-        <div class="container">
-          <span class="section__label">Visual Stories</span>
-          <h1 class="section__title">Photography</h1>
-          <p style="color: var(--text-secondary); font-size: 1.125rem; max-width: 600px; margin-top: 1rem;">
-            Urban landscapes, natural wonders, and street life from my travels across Europe and beyond.
-          </p>
-        </div>
-      </section>
-
-      <section class="section" style="padding-top: 0;">
-        <div class="container">
-          <div class="gallery-grid" id="gallery"></div>
-        </div>
+    <main>
+      <section class="content-split" aria-label="Main content">
+        <article class="photo-list" aria-labelledby="gallery-heading">
+          <h2 id="gallery-heading">Gallery</h2>
+          <div class="gallery-grid" id="photoGallery">
+            <!-- Images will be loaded dynamically -->
+          </div>
+          <div class="about-section">
+            <h2>About My Photography</h2>
+            <p>
+              Through my lens, I explore the intricate details of urban landscapes, the serenity of natural wonders, and the vibrant energy of street life. These photographs are available for non-commercial, personal use. Please contact me for prints or collaborations.
+            </p>
+          </div>
+        </article>
+        <aside class="right-col" aria-labelledby="contact-heading">
+          <div class="contact-cta" id="contact-heading">CONTACT</div>
+        </aside>
       </section>
     </main>
-
-    <div class="lightbox" id="lightbox">
-      <button class="lightbox__close" aria-label="Close">✕</button>
-      <img class="lightbox__img" id="lightbox-img" src="" alt="">
-    </div>
-
-    <footer class="site-footer">
-      <div class="container">
-        <div class="footer-inner">
-          <p class="footer__copyright">© <span id="year">2025</span> Raghavendra Meena</p>
-          <div class="footer__socials">
-            <a href="https://www.linkedin.com/in/raghavendra-meena/" class="social-link" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
-            <a href="https://github.com/raghavendram3/" class="social-link" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg></a>
-            <a href="mailto:raghavendra.meena@wur.nl" class="social-link" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
-          </div>
+    <footer class="site-footer" role="contentinfo">
+      <div class="footer-inner">
+        <div>&copy; 2025 by Raghavendra Meena.</div>
+        <div class="socials" aria-label="Social links">
+          <a href="https://www.linkedin.com/in/raghavendra-meena/" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+          <a href="https://www.instagram.com/raghavendram3" aria-label="Instagram"><i class="fa fa-instagram"></i></a>
+          <a href="https://scholar.google.com/citations?user=e-ZYru0AAAAJ&hl=en" aria-label="Google Scholar"><i class="fa fa-graduation-cap"></i></a>
+          <a href="mailto:raghavendra.meena@wur.nl" aria-label="Email"><i class="fa fa-envelope"></i></a>
         </div>
       </div>
     </footer>
   </div>
-
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    
-    // Header scroll effect
-    const header = document.getElementById('header');
-    window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 50));
-
-    // Gallery images
     const images = [
-      { src: 'images/berlin.jpg', alt: 'Berlin' },
-      { src: 'images/paris.jpg', alt: 'Paris' },
-      { src: 'images/Lisbon.jpg', alt: 'Lisbon' },
-      { src: 'images/italia.jpg', alt: 'Italy' },
-      { src: 'images/fkf.jpg', alt: 'Urban scene' },
-      { src: 'images/DSC_0069.jpg', alt: 'Landscape' },
-      { src: 'images/DSC_0079.jpg', alt: 'Nature' },
-      { src: 'images/DSC_0082.jpg', alt: 'Scenic view' },
-      { src: 'images/DSC_0084.jpg', alt: 'Landscape' },
-      { src: 'images/IMG_20210831_180425.jpg', alt: 'Golden hour' },
-      { src: 'images/IMG_20210904_204541.jpg', alt: 'Evening' },
-      { src: 'images/IMG_20210904_215804.jpg', alt: 'Night' },
-      { src: 'images/WA0001.jpg', alt: 'Street' },
-      { src: 'images/WA0005.jpg', alt: 'Urban' },
-      { src: 'images/WA0007.jpg', alt: 'City' },
-      { src: 'images/WA0008.jpg', alt: 'Street view' },
-      { src: 'images/Moon.jpg', alt: 'Moon' }
+      { src: '/images/Moon.jpg', alt: 'Moon Photography' },
+      { src: '/images/berlin.jpg', alt: 'Berlin Street Scene' },
+      { src: '/images/Lisbon.jpg', alt: 'Lisbon Architecture' },
+      { src: '/images/paris.jpg', alt: 'Paris View' },
+      { src: '/images/italia.jpg', alt: 'Italian Landscape' },
+      { src: '/images/fkf.jpg', alt: 'Urban Photography' },
+      { src: '/images/20151121.jpg', alt: 'Photography 2015' },
+      { src: '/images/DSC_0069.jpg', alt: 'Landscape Photography' },
+      { src: '/images/DSC_0079.jpg', alt: 'Nature Photography' },
+      { src: '/images/DSC_0082.jpg', alt: 'Scenic View' },
+      { src: '/images/DSC_0084.jpg', alt: 'Landscape Scene' },
+      { src: '/images/IMG_20210831_180425.jpg', alt: 'Evening Photography' },
+      { src: '/images/IMG_20210904_204541.jpg', alt: 'Night Photography' },
+      { src: '/images/IMG_20210904_215804.jpg', alt: 'Late Night Scene' },
+      { src: '/images/IMG_20210905_144647.jpg', alt: 'Afternoon Photography' },
+      { src: '/images/WA0001.jpg', alt: 'Street Photography' },
+      { src: '/images/WA0005.jpg', alt: 'Urban Scene' },
+      { src: '/images/WA0007.jpg', alt: 'City Photography' },
+      { src: '/images/WA0008.jpg', alt: 'Street View' },
+      { src: '/images/IMG_20210901_202844__01-EFFECTS.jpg', alt: 'Special Effects Photography' }
     ];
 
-    const gallery = document.getElementById('gallery');
-    images.forEach(img => {
+    const gallery = document.getElementById('photoGallery');
+    images.forEach(image => {
       const item = document.createElement('div');
       item.className = 'gallery-item';
-      item.innerHTML = `<img src="${img.src}" alt="${img.alt}" loading="lazy">`;
-      item.onclick = () => openLightbox(img.src, img.alt);
+      item.innerHTML = `<img src="${image.src}" alt="${image.alt}" loading="lazy">`;
       gallery.appendChild(item);
     });
-
-    // Lightbox
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-    
-    function openLightbox(src, alt) {
-      lightboxImg.src = src;
-      lightboxImg.alt = alt;
-      lightbox.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-    
-    function closeLightbox() {
-      lightbox.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-    
-    lightbox.onclick = closeLightbox;
-    document.querySelector('.lightbox__close').onclick = closeLightbox;
-    document.addEventListener('keydown', e => e.key === 'Escape' && closeLightbox());
   </script>
 </body>
 </html>
