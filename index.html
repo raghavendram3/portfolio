@@ -29,15 +29,6 @@
     gtag('js', new Date());
     gtag('config', 'G-5Q1C5BCJK9');
   </script>
-  <script src="/neural-bg.js"></script>
-<script>
-  const neuralNet = initNeuralBg('nn-canvas');
-
-  // pause when tab is hidden — saves CPU
-  document.addEventListener('visibilitychange', () => {
-    document.hidden ? neuralNet.pause() : neuralNet.resume();
-  });
-</script>
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to main content</a>
@@ -227,5 +218,14 @@ and learning musical instruments.
       observer.observe(el);
     });
   </script>
+<script src="/neural-bg.js"></script>
+<script>
+  const neuralNet = initNeuralBg('nn-canvas');
+
+  // pause when tab is hidden — saves CPU
+  document.addEventListener('visibilitychange', () => {
+    document.hidden ? neuralNet.pause() : neuralNet.resume();
+  });
+</script>
 </body>
 </html>
