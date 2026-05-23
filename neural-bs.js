@@ -1,86 +1,75 @@
 /**
- * neural-bg.js
- * Interactive neural-network canvas background for randomwalker.org
+ * neural-bg.js  —  randomwalker.org
  *
  * Usage:
  *   const net = initNeuralBg('nn-canvas');
- *   // later, to cleanly remove it:
- *   net.destroy();
+ *   net.destroy();   // clean up later if needed
  *
- * The canvas must be a direct child of the element you want covered,
- * positioned absolutely with inset: 0 (see README comment at the bottom).
+ * CSS you need (already in index.html <style> block):
+ *   #nn-canvas { position:absolute; inset:0; width:100%; height:100%;
+ *                z-index:0; pointer-events:none; display:block; }
+ *   .hero__orb, .hero__orb-secondary, .hero .container
+ *                { position:relative; z-index:1; }
  */
 
 (function (global) {
   'use strict';
 
-  // ─── Palette (thesis cover) ──────────────────────────────────────────────
-  const COLORS = [
-    { r: 30,  g: 200, b: 212 },   // cosmic cyan   — primary accent
-    { r: 30,  g: 200, b: 212 },   // cyan again (weighted heavier)
+  /* ── Palette (PhD thesis cover) ── */
+  var PALETTE = [
+    { r: 30,  g: 200, b: 212 },   // cosmic cyan   (weighted 3×)
+    { r: 30,  g: 200, b: 212 },
+    { r: 30,  g: 200, b: 212 },
     { r: 155, g: 111, b: 212 },   // nebula purple
     { r: 201, g: 162, b: 39  },   // orbit gold
     { r: 224, g: 90,  b: 43  },   // catalyst orange
   ];
 
-  // ─── Default config ──────────────────────────────────────────────────────
-  const DEFAULTS = {
-    nodeCount:      85,     // number of particles
-    connectDist:    140,    // max px between connected nodes
-    mouseRadius:    180,    // repulsion radius around cursor
-    repelStrength:  0.022,  // base repulsion force
-    clickStrength:  0.07,   // repulsion force while mouse button held
-    speed:          0.40,   // base drift speed
-    friction:       0.984,  // velocity damping per frame (< 1)
-    nodeSizeMin:    1.8,
-    nodeSizeMax:    3.8,
-    pulseSpeed:     0.016,  // radians per frame
-    edgeAlphaMax:   0.38,   // max edge opacity
-    nodeAlphaBase:  0.50,   // resting node opacity
-    glowRadius:     6,      // px of glow halo when excited
-    bgColor:        '#0a0c10',
+  var DEFAULTS = {
+    nodeCount:     80,
+    connectDist:   140,
+    mouseRadius:   175,
+    repelForce:    0.022,
+    clickForce:    0.065,
+    speed:         0.38,
+    friction:      0.983,
+    sizeMin:       1.8,
+    sizeMax:       3.8,
+    pulseSpeed:    0.016,
+    edgeAlpha:     0.36,
+    nodeAlpha:     0.52,
+    glowSize:      6,
   };
 
-  // ─── Helpers ─────────────────────────────────────────────────────────────
+  /* ── helpers ── */
   function rgba(c, a) {
-    return `rgba(${c.r},${c.g},${c.b},${+a.toFixed(3)})`;
+    return 'rgba(' + c.r + ',' + c.g + ',' + c.b + ',' + a.toFixed(3) + ')';
   }
+  function rndColor() { return PALETTE[Math.floor(Math.random() * PALETTE.length)]; }
+  function d2(ax, ay, bx, by) { var dx=ax-bx, dy=ay-by; return dx*dx+dy*dy; }
 
-  function pickColor() {
-    return COLORS[Math.floor(Math.random() * COLORS.length)];
-  }
+  /* ── main factory ── */
+  function initNeuralBg(canvasId, userCfg) {
+    var canvas = document.getElementById(canvasId);
+    if (!canvas) { console.warn('neural-bg: #' + canvasId + ' not found'); return null; }
 
-  function dist2(ax, ay, bx, by) {
-    const dx = ax - bx, dy = ay - by;
-    return dx * dx + dy * dy;
-  }
+    var cfg = {};
+    for (var k in DEFAULTS) cfg[k] = DEFAULTS[k];
+    if (userCfg) for (var k in userCfg) cfg[k] = userCfg[k];
 
-  // ─── Main factory ────────────────────────────────────────────────────────
-  function initNeuralBg(canvasId, userConfig) {
-    const canvas = document.getElementById(canvasId);
-    if (!canvas) {
-      console.warn('neural-bg: canvas #' + canvasId + ' not found.');
-      return null;
-    }
+    var ctx    = canvas.getContext('2d');
+    var parent = canvas.parentElement;
+    var W = 0, H = 0, nodes = [], raf = null, frame = 0, clicking = false;
+    var mouseX = -9999, mouseY = -9999;
+    var cd2 = cfg.connectDist * cfg.connectDist;
+    var mr2 = cfg.mouseRadius * cfg.mouseRadius;
 
-    const cfg    = Object.assign({}, DEFAULTS, userConfig || {});
-    const ctx    = canvas.getContext('2d');
-    const parent = canvas.parentElement;
-
-    let W = 0, H = 0;
-    let nodes   = [];
-    let rafId   = null;
-    let frame   = 0;
-    let mouseX  = -9999, mouseY = -9999;
-    let clicking = false;
-    const connectDist2 = cfg.connectDist * cfg.connectDist;
-    const mouseRadius2 = cfg.mouseRadius * cfg.mouseRadius;
-
-    // ── DPR-aware resize ──
+    /* ── sizing ── */
     function resize() {
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      var dpr = Math.min(window.devicePixelRatio || 1, 2);
       W = parent.clientWidth;
       H = parent.clientHeight;
+      if (!W || !H) return;
       canvas.width  = W * dpr;
       canvas.height = H * dpr;
       canvas.style.width  = W + 'px';
@@ -88,252 +77,161 @@
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     }
 
-    // ── Node factory ──
+    /* ── nodes ── */
     function makeNode() {
-      const angle = Math.random() * Math.PI * 2;
-      const spd   = cfg.speed * (0.5 + Math.random() * 0.5);
+      var angle = Math.random() * Math.PI * 2;
+      var spd   = cfg.speed * (0.5 + Math.random() * 0.5);
       return {
-        x:     Math.random() * W,
-        y:     Math.random() * H,
-        vx:    Math.cos(angle) * spd,
-        vy:    Math.sin(angle) * spd,
-        size:  cfg.nodeSizeMin + Math.random() * (cfg.nodeSizeMax - cfg.nodeSizeMin),
-        col:   pickColor(),
-        phase: Math.random() * Math.PI * 2,   // pulse offset
-        amp:   0.35 + Math.random() * 0.55,   // pulse amplitude
+        x: Math.random() * W, y: Math.random() * H,
+        vx: Math.cos(angle) * spd, vy: Math.sin(angle) * spd,
+        size:  cfg.sizeMin + Math.random() * (cfg.sizeMax - cfg.sizeMin),
+        col:   rndColor(),
+        phase: Math.random() * Math.PI * 2,
+        amp:   0.35 + Math.random() * 0.55,
       };
     }
+    function initNodes() { nodes = []; for (var i=0; i<cfg.nodeCount; i++) nodes.push(makeNode()); }
 
-    function initNodes() {
-      nodes = [];
-      for (let i = 0; i < cfg.nodeCount; i++) nodes.push(makeNode());
+    /* ── draw ── */
+    function drawEdge(a, b, dist2val) {
+      var alpha = (1 - Math.sqrt(dist2val) / cfg.connectDist) * cfg.edgeAlpha;
+      var g = ctx.createLinearGradient(a.x, a.y, b.x, b.y);
+      g.addColorStop(0, rgba(a.col, alpha));
+      g.addColorStop(1, rgba(b.col, alpha));
+      ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y);
+      ctx.strokeStyle = g; ctx.lineWidth = 0.65; ctx.stroke();
     }
 
-    // ── Edge drawing ──
-    function drawEdge(a, b, d2) {
-      const alpha = (1 - Math.sqrt(d2) / cfg.connectDist) * cfg.edgeAlphaMax;
-      const grad  = ctx.createLinearGradient(a.x, a.y, b.x, b.y);
-      grad.addColorStop(0, rgba(a.col, alpha));
-      grad.addColorStop(1, rgba(b.col, alpha));
-      ctx.beginPath();
-      ctx.moveTo(a.x, a.y);
-      ctx.lineTo(b.x, b.y);
-      ctx.strokeStyle = grad;
-      ctx.lineWidth   = 0.65;
-      ctx.stroke();
-    }
-
-    // ── Node drawing ──
     function drawNode(n, excited) {
-      const pulse = 1 + Math.sin(frame * cfg.pulseSpeed + n.phase) * 0.22 * n.amp;
-      const r     = n.size * pulse;
-      const alpha = cfg.nodeAlphaBase + excited * (1 - cfg.nodeAlphaBase);
-
-      // core dot
-      ctx.beginPath();
-      ctx.arc(n.x, n.y, r, 0, Math.PI * 2);
-      ctx.fillStyle = rgba(n.col, alpha);
-      ctx.fill();
-
-      // glow halo (only when cursor is near)
+      var pulse = 1 + Math.sin(frame * cfg.pulseSpeed + n.phase) * 0.22 * n.amp;
+      var r     = n.size * pulse;
+      var alpha = cfg.nodeAlpha + excited * (1 - cfg.nodeAlpha);
+      ctx.beginPath(); ctx.arc(n.x, n.y, r, 0, Math.PI * 2);
+      ctx.fillStyle = rgba(n.col, alpha); ctx.fill();
       if (excited > 0.08) {
-        ctx.beginPath();
-        ctx.arc(n.x, n.y, r + cfg.glowRadius * excited, 0, Math.PI * 2);
-        ctx.strokeStyle = rgba(n.col, excited * 0.35);
-        ctx.lineWidth   = 1.2;
-        ctx.stroke();
+        ctx.beginPath(); ctx.arc(n.x, n.y, r + cfg.glowSize * excited, 0, Math.PI * 2);
+        ctx.strokeStyle = rgba(n.col, excited * 0.32);
+        ctx.lineWidth = 1.2; ctx.stroke();
       }
     }
 
-    // ── Main animation loop ──
+    /* ── loop ── */
     function tick() {
       frame++;
       ctx.clearRect(0, 0, W, H);
+      var force = clicking ? cfg.clickForce : cfg.repelForce;
 
-      const strength = clicking ? cfg.clickStrength : cfg.repelStrength;
+      for (var i = 0; i < nodes.length; i++) {
+        var n = nodes[i];
 
-      // update positions + collect edges
-      for (let i = 0; i < nodes.length; i++) {
-        const n  = nodes[i];
-
-        // mouse repulsion
-        const mdx = n.x - mouseX;
-        const mdy = n.y - mouseY;
-        const md2 = mdx * mdx + mdy * mdy;
-
-        if (md2 < mouseRadius2 && md2 > 0.01) {
-          const md  = Math.sqrt(md2);
-          const f   = (1 - md / cfg.mouseRadius) * strength;
+        /* mouse repulsion */
+        var mdx = n.x - mouseX, mdy = n.y - mouseY;
+        var md2 = mdx*mdx + mdy*mdy;
+        if (md2 < mr2 && md2 > 0.01) {
+          var md = Math.sqrt(md2);
+          var f  = (1 - md / cfg.mouseRadius) * force;
           n.vx += (mdx / md) * f * 10;
           n.vy += (mdy / md) * f * 10;
         }
 
-        // damping
-        n.vx *= cfg.friction;
-        n.vy *= cfg.friction;
+        /* damping + speed cap */
+        n.vx *= cfg.friction; n.vy *= cfg.friction;
+        var spd = Math.sqrt(n.vx*n.vx + n.vy*n.vy);
+        if (spd > 4) { n.vx = n.vx/spd*4; n.vy = n.vy/spd*4; }
 
-        // clamp max speed so nodes don't fly off
-        const spd = Math.sqrt(n.vx * n.vx + n.vy * n.vy);
-        if (spd > 4) { n.vx = (n.vx / spd) * 4; n.vy = (n.vy / spd) * 4; }
+        n.x += n.vx; n.y += n.vy;
 
-        n.x += n.vx;
-        n.y += n.vy;
+        /* soft boundary push */
+        var m = 20;
+        if (n.x < m)     n.vx += (m - n.x)     * 0.04;
+        if (n.x > W - m) n.vx -= (n.x-(W-m))   * 0.04;
+        if (n.y < m)     n.vy += (m - n.y)     * 0.04;
+        if (n.y > H - m) n.vy -= (n.y-(H-m))   * 0.04;
 
-        // soft boundary bounce (not a hard clamp — feels more organic)
-        const margin = 20;
-        if (n.x < margin)     { n.vx += (margin - n.x)     * 0.04; }
-        if (n.x > W - margin) { n.vx -= (n.x - (W-margin)) * 0.04; }
-        if (n.y < margin)     { n.vy += (margin - n.y)     * 0.04; }
-        if (n.y > H - margin) { n.vy -= (n.y - (H-margin)) * 0.04; }
-
-        // draw edges to later nodes (avoids double-drawing)
-        for (let j = i + 1; j < nodes.length; j++) {
-          const d2 = dist2(n.x, n.y, nodes[j].x, nodes[j].y);
-          if (d2 < connectDist2) drawEdge(n, nodes[j], d2);
+        /* edges */
+        for (var j = i+1; j < nodes.length; j++) {
+          var dist = d2(n.x, n.y, nodes[j].x, nodes[j].y);
+          if (dist < cd2) drawEdge(n, nodes[j], dist);
         }
       }
 
-      // draw nodes on top of all edges
-      for (const n of nodes) {
-        const d2      = dist2(n.x, n.y, mouseX, mouseY);
-        const excited = d2 < mouseRadius2 ? 1 - Math.sqrt(d2) / cfg.mouseRadius : 0;
+      /* nodes on top of edges */
+      for (var i = 0; i < nodes.length; i++) {
+        var n = nodes[i];
+        var dist = d2(n.x, n.y, mouseX, mouseY);
+        var excited = dist < mr2 ? 1 - Math.sqrt(dist) / cfg.mouseRadius : 0;
         drawNode(n, excited);
       }
 
-      rafId = requestAnimationFrame(tick);
+      raf = requestAnimationFrame(tick);
     }
 
-    // ── Event listeners ──
-    function onMouseMove(e) {
-      const rect = canvas.getBoundingClientRect();
-      mouseX = e.clientX - rect.left;
-      mouseY = e.clientY - rect.top;
+    /* ── mouse/touch — attached to DOCUMENT so z-index never blocks them ── */
+    function getPos(e) {
+      var rect = canvas.getBoundingClientRect();
+      return { x: e.clientX - rect.left, y: e.clientY - rect.top };
     }
 
-    function onMouseLeave() {
-      mouseX = -9999;
-      mouseY = -9999;
+    function onMove(e) {
+      var p = getPos(e);
+      /* only "active" when cursor is inside the canvas bounding box */
+      var rect = canvas.getBoundingClientRect();
+      if (e.clientX >= rect.left && e.clientX <= rect.right &&
+          e.clientY >= rect.top  && e.clientY <= rect.bottom) {
+        mouseX = p.x; mouseY = p.y;
+      } else {
+        mouseX = -9999; mouseY = -9999;
+      }
     }
 
-    function onMouseDown() { clicking = true;  }
-    function onMouseUp()   { clicking = false; }
+    function onDown() { clicking = true;  }
+    function onUp()   { clicking = false; }
 
-    // Touch support
-    function onTouchMove(e) {
-      if (e.touches.length === 0) return;
-      e.preventDefault();
-      const rect  = canvas.getBoundingClientRect();
-      const touch = e.touches[0];
-      mouseX = touch.clientX - rect.left;
-      mouseY = touch.clientY - rect.top;
+    function onTouch(e) {
+      if (!e.touches.length) return;
+      var t    = e.touches[0];
+      var rect = canvas.getBoundingClientRect();
+      mouseX   = t.clientX - rect.left;
+      mouseY   = t.clientY - rect.top;
     }
+    function onTouchEnd() { mouseX = -9999; mouseY = -9999; }
 
-    function onTouchEnd() {
-      mouseX = -9999;
-      mouseY = -9999;
-    }
+    document.addEventListener('mousemove',  onMove,    { passive: true });
+    document.addEventListener('mousedown',  onDown,    { passive: true });
+    document.addEventListener('mouseup',    onUp,      { passive: true });
+    document.addEventListener('touchmove',  onTouch,   { passive: true });
+    document.addEventListener('touchend',   onTouchEnd,{ passive: true });
 
-    parent.addEventListener('mousemove',  onMouseMove,  { passive: true });
-    parent.addEventListener('mouseleave', onMouseLeave, { passive: true });
-    parent.addEventListener('mousedown',  onMouseDown,  { passive: true });
-    window.addEventListener('mouseup',    onMouseUp,    { passive: true });
-    parent.addEventListener('touchmove',  onTouchMove,  { passive: false });
-    parent.addEventListener('touchend',   onTouchEnd,   { passive: true });
-
-    // ── ResizeObserver (handles hero height changes too) ──
-    const ro = new ResizeObserver(() => resize());
+    /* ── resize ── */
+    var ro = new ResizeObserver(function() { resize(); });
     ro.observe(parent);
 
-    // ── Boot ──
+    /* ── boot ── */
     resize();
     initNodes();
     tick();
 
-    // ── Public API ──
+    console.log('[neural-bg] running — ' + cfg.nodeCount + ' nodes on #' + canvasId);
+
+    /* ── public API ── */
     return {
-      /**
-       * Cleanly stops the animation and removes all event listeners.
-       * Call this if you remove the canvas from the DOM (e.g. SPA routing).
-       */
-      destroy() {
-        cancelAnimationFrame(rafId);
+      destroy: function() {
+        cancelAnimationFrame(raf);
         ro.disconnect();
-        parent.removeEventListener('mousemove',  onMouseMove);
-        parent.removeEventListener('mouseleave', onMouseLeave);
-        parent.removeEventListener('mousedown',  onMouseDown);
-        window.removeEventListener('mouseup',    onMouseUp);
-        parent.removeEventListener('touchmove',  onTouchMove);
-        parent.removeEventListener('touchend',   onTouchEnd);
+        document.removeEventListener('mousemove',  onMove);
+        document.removeEventListener('mousedown',  onDown);
+        document.removeEventListener('mouseup',    onUp);
+        document.removeEventListener('touchmove',  onTouch);
+        document.removeEventListener('touchend',   onTouchEnd);
         ctx.clearRect(0, 0, canvas.width, canvas.height);
+        console.log('[neural-bg] destroyed');
       },
-
-      /**
-       * Live-tweak any config value after init.
-       * e.g.  net.set({ nodeCount: 120, connectDist: 160 })
-       * Note: nodeCount changes take effect on next resize/reinit.
-       */
-      set(patch) {
-        Object.assign(cfg, patch);
-      },
-
-      /** Pause / resume the animation loop. */
-      pause()  { cancelAnimationFrame(rafId); rafId = null; },
-      resume() { if (!rafId) tick(); },
+      pause:  function() { cancelAnimationFrame(raf); raf = null; },
+      resume: function() { if (!raf) tick(); },
+      set:    function(patch) { for (var k in patch) cfg[k] = patch[k]; },
     };
   }
 
-  // ── Expose globally ──
   global.initNeuralBg = initNeuralBg;
 
 }(window));
-
-/*
- * ─── HTML setup ──────────────────────────────────────────────────────────────
- *
- * In index.html, inside .hero, add the canvas as the FIRST child:
- *
- *   <section class="hero">
- *     <canvas id="nn-canvas"></canvas>
- *     <div class="hero__orb"></div>
- *     <div class="hero__orb-secondary"></div>
- *     <div class="container">
- *       <div class="hero__content"> ... </div>
- *     </div>
- *   </section>
- *
- * ─── CSS setup (add to styles.css) ───────────────────────────────────────────
- *
- *   #nn-canvas {
- *     position: absolute;
- *     inset: 0;
- *     width: 100%;
- *     height: 100%;
- *     z-index: 0;
- *     pointer-events: none;   <- lets clicks pass through to buttons
- *   }
- *
- *   .hero__content,
- *   .hero__orb,
- *   .hero__orb-secondary {
- *     position: relative;
- *     z-index: 1;
- *   }
- *
- * ─── Script tag (bottom of <body>) ───────────────────────────────────────────
- *
- *   <script src="/neural-bg.js"></script>
- *   <script>
- *     const neuralNet = initNeuralBg('nn-canvas');
- *
- *     // Optional: pause when tab is hidden (saves CPU)
- *     document.addEventListener('visibilitychange', () => {
- *       document.hidden ? neuralNet.pause() : neuralNet.resume();
- *     });
- *   </script>
- *
- * ─── Optional: use on the CV page too ────────────────────────────────────────
- *
- *   Add a second canvas inside .cv-header, give it id="nn-canvas-cv",
- *   and call:  initNeuralBg('nn-canvas-cv', { nodeCount: 55, connectDist: 110 });
- *   The factory is multi-instance safe — each call is fully independent.
- */
