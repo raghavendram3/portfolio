@@ -966,3 +966,16 @@ ul, ol { list-style: none; }
   .gallery-grid { grid-template-columns: 1fr; }
   .skills-grid { grid-template-columns: 1fr; }
 }
+.hero { position: relative; }   /* already set */
+
+#nn-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;   /* lets clicks pass through to buttons */
+}
+
+/* push hero content above the canvas */
+.hero__content { position: relative; z-index: 1; }
