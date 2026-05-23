@@ -4,37 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Raghavendra Meena | Computational Materials Scientist</title>
-
-  <!-- SEO -->
   <meta name="description" content="Computational materials scientist specializing in DFT, AIMD, microkinetic modeling, and machine learning for sustainable catalysis and materials design.">
   <meta name="keywords" content="computational chemistry, materials science, DFT, catalysis, machine learning, Wageningen University">
   <meta name="author" content="Raghavendra Meena">
-
-  <!-- Open Graph -->
   <meta property="og:type"        content="website">
   <meta property="og:title"       content="Raghavendra Meena | Computational Materials Scientist">
   <meta property="og:description" content="Computational materials scientist specializing in sustainable catalysis and materials design.">
   <meta property="og:url"         content="https://randomwalker.org/">
   <meta property="og:image"       content="https://randomwalker.org/pp.jpg">
-
   <link rel="canonical" href="https://randomwalker.org/">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="stylesheet" href="/styles.css">
-
-  <!-- Neural-bg canvas positioning — kept here so it's self-contained -->
   <style>
-    /* Canvas sits behind all hero content */
     #nn-canvas {
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
       z-index: 0;
-      pointer-events: none; /* clicks pass through to buttons */
+      pointer-events: none;
       display: block;
     }
-
-    /* Everything inside hero floats above the canvas */
     .hero__orb,
     .hero__orb-secondary,
     .hero .container {
@@ -42,8 +32,6 @@
       z-index: 1;
     }
   </style>
-
-  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-5Q1C5BCJK9"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -54,54 +42,41 @@
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to main content</a>
-
   <div class="page-wrapper">
 
-    <!-- ═══════════ HEADER ═══════════ -->
     <header class="site-header" id="header">
       <div class="container">
         <div class="header-inner">
-
           <a href="/" class="site-logo">
             <span class="site-logo__name">Raghavendra Meena</span>
             <span class="site-logo__title">Computational Materials Scientist</span>
           </a>
-
           <nav class="site-nav" aria-label="Main navigation">
             <ul class="site-nav__list">
-              <li><a href="/"              class="site-nav__link" aria-current="page">Home</a></li>
-              <li><a href="/pubs.html"     class="site-nav__link">Publications</a></li>
+              <li><a href="/"                class="site-nav__link" aria-current="page">Home</a></li>
+              <li><a href="/pubs.html"        class="site-nav__link">Publications</a></li>
               <li><a href="/photography.html" class="site-nav__link">Photography</a></li>
-              <li><a href="/cv.html"       class="site-nav__link">CV</a></li>
-              <li><a href="#contact"       class="site-nav__link">Contact</a></li>
+              <li><a href="/cv.html"          class="site-nav__link">CV</a></li>
+              <li><a href="#contact"          class="site-nav__link">Contact</a></li>
             </ul>
           </nav>
-
           <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24">
               <path d="M4 6h16M4 12h16M4 18h16"/>
             </svg>
           </button>
-
         </div>
       </div>
     </header>
 
     <main id="main">
 
-      <!-- ═══════════ HERO ═══════════ -->
       <section class="hero">
-
-        <!-- Neural network background — must be first child so it's behind everything -->
         <canvas id="nn-canvas" aria-hidden="true"></canvas>
-
-        <!-- Ambient colour orbs (sit above canvas, below text) -->
         <div class="hero__orb"           aria-hidden="true"></div>
         <div class="hero__orb-secondary" aria-hidden="true"></div>
-
         <div class="container">
           <div class="hero__content">
-
             <div class="hero__text">
               <span class="hero__greeting">Hello, I'm</span>
               <h1 class="hero__name">Raghavendra <em>Meena</em></h1>
@@ -109,7 +84,7 @@
                 A computational materials scientist exploring the frontiers of
                 <strong>sustainable catalysis</strong> through density functional theory,
                 <em>ab initio</em> molecular dynamics, microkinetic modeling, metadynamics,
-                and machine learning — at Wageningen University &amp; Research.
+                and machine learning &mdash; at Wageningen University &amp; Research.
               </p>
               <div class="hero__cta">
                 <a href="/pubs.html" class="btn btn--primary">
@@ -121,7 +96,6 @@
                 <a href="/cv.html" class="btn btn--secondary">Download CV</a>
               </div>
             </div>
-
             <div class="hero__photo-wrapper">
               <div class="hero__photo">
                 <div class="hero__photo-frame">
@@ -130,33 +104,31 @@
                 <div class="hero__photo-decor" aria-hidden="true"></div>
               </div>
             </div>
-
           </div>
         </div>
       </section>
 
-      <!-- ═══════════ BIOGRAPHY ═══════════ -->
       <div class="container">
         <section class="cv-section">
           <h2 class="cv-section__title">Biography</h2>
-          <p style="font-size:0.97rem; color:var(--text-secondary); line-height:1.8;">
-            Raghavendra Meena completed a BS-MS degree (2015–2020) in Chemistry &amp; Physics
+          <p style="font-size:0.97rem;color:var(--text-secondary);line-height:1.8;">
+            Raghavendra Meena completed a BS-MS degree (2015&ndash;2020) in Chemistry &amp; Physics
             from IISER Pune, India, including a full-year Master's thesis under Prof. Michele
-            Casula at Sorbonne Université, France. During his BS-MS he completed research
+            Casula at Sorbonne Universit&eacute;, France. During his BS-MS he completed research
             internships in computational chemistry with Prof. Prasenjit Ghosh (IISER Pune,
-            2018–19), Prof. Eluvathingal D. Jemmis (IISc Bangalore, 2018), Prof. Amlan K. Roy
+            2018&ndash;19), Prof. Eluvathingal D. Jemmis (IISc Bangalore, 2018), Prof. Amlan K. Roy
             (IISER Kolkata, 2017), and Prof. Manikandan Paranjothy (IIT Jodhpur, 2016). He was
-            awarded the National Talent Search Examination Scholarship (2013–2015) and the
-            INSPIRE Scholarship by the Department of Science and Technology (2015–2020), both
+            awarded the National Talent Search Examination Scholarship (2013&ndash;2015) and the
+            INSPIRE Scholarship by the Department of Science and Technology (2015&ndash;2020), both
             recognising academic merit at the national level. An Erasmus+ Fellowship supported
             his time in France.
           </p>
-          <p style="font-size:0.97rem; color:var(--text-secondary); line-height:1.8; margin-top:1rem;">
+          <p style="font-size:0.97rem;color:var(--text-secondary);line-height:1.8;margin-top:1rem;">
             In October 2020 he joined as a joint PhD candidate between the Biobased Chemistry
             and Technology group and the Laboratory of Organic Chemistry at Wageningen
             University, under the supervision of Prof. Harry Bitter, Prof. Han Zuilhof, and
-            Dr. Guanna Li. His PhD research — <em>Multiscale Modeling of Molybdenum and
-            Tungsten Carbide Catalysts for Sustainable Biomass Conversion</em> — broadly applies
+            Dr. Guanna Li. His PhD research &mdash; <em>Multiscale Modeling of Molybdenum and
+            Tungsten Carbide Catalysts for Sustainable Biomass Conversion</em> &mdash; broadly applies
             computational materials science and theoretical chemistry to sustainable catalysis,
             biomass conversion, plastic waste upcycling, and electrochemical transformations.
             Outside of research, he enjoys football, chess, photography, building trading
@@ -165,7 +137,6 @@
         </section>
       </div>
 
-      <!-- ═══════════ CONTACT ═══════════ -->
       <section class="section contact" id="contact">
         <div class="container container--narrow">
           <h2 class="contact__title">Let's Connect</h2>
@@ -185,62 +156,39 @@
 
     </main>
 
-    <!-- ═══════════ FOOTER ═══════════ -->
     <footer class="site-footer">
       <div class="container">
         <div class="footer-inner">
-
-          <p class="footer__copyright">
-            © <span id="year">2026</span> Raghavendra Meena. All rights reserved.
-          </p>
-
+          <p class="footer__copyright">&copy; <span id="year">2025</span> Raghavendra Meena. All rights reserved.</p>
           <div class="footer__socials">
             <a href="https://www.linkedin.com/in/raghavendra-meena/" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-              </svg>
+              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
             </a>
             <a href="https://github.com/raghavendram3/" class="social-link" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-                <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
-              </svg>
+              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
             </a>
             <a href="https://scholar.google.com/citations?user=e-ZYru0AAAAJ&hl=en" class="social-link" aria-label="Google Scholar" target="_blank" rel="noopener noreferrer">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-                <path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/>
-              </svg>
+              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
             </a>
             <a href="https://www.instagram.com/raghavendram3" class="social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
-              </svg>
+              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
             </a>
             <a href="mailto:raghavendra.ip2020@gmail.com" class="social-link" aria-label="Email">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                <polyline points="22,6 12,13 2,6"/>
-              </svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             </a>
           </div>
-
         </div>
       </div>
     </footer>
 
-  </div><!-- /.page-wrapper -->
+  </div>
 
-  <!-- ═══════════ SCRIPTS ═══════════ -->
   <script>
-    // Dynamic year
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Header scroll effect
     const header = document.getElementById('header');
     window.addEventListener('scroll', () => {
       header.classList.toggle('scrolled', window.scrollY > 50);
     }, { passive: true });
-
-    // Animate-on-scroll (for future use)
     const observer = new IntersectionObserver(
       entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
       { threshold: 0.1 }
@@ -248,15 +196,149 @@
     document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
   </script>
 
-  <!-- Neural network background — loaded last so DOM is ready -->
-  <script src="neural-bg.js"></script>
   <script>
-    const neuralNet = initNeuralBg('nn-canvas');
+  /* neural-bg — inlined, no external file needed */
+  (function (global) {
+    'use strict';
+    var PALETTE = [
+      { r:30,  g:200, b:212 },
+      { r:30,  g:200, b:212 },
+      { r:30,  g:200, b:212 },
+      { r:155, g:111, b:212 },
+      { r:201, g:162, b:39  },
+      { r:224, g:90,  b:43  },
+    ];
+    var DEFAULTS = {
+      nodeCount:80, connectDist:140, mouseRadius:175,
+      repelForce:0.022, clickForce:0.065,
+      speed:0.38, friction:0.983,
+      sizeMin:1.8, sizeMax:3.8, pulseSpeed:0.016,
+      edgeAlpha:0.36, nodeAlpha:0.52, glowSize:6,
+    };
+    function rgba(c,a){ return 'rgba('+c.r+','+c.g+','+c.b+','+a.toFixed(3)+')'; }
+    function rndColor(){ return PALETTE[Math.floor(Math.random()*PALETTE.length)]; }
+    function d2(ax,ay,bx,by){ var dx=ax-bx,dy=ay-by; return dx*dx+dy*dy; }
 
-    // Pause when tab is not visible — saves CPU and battery
-    document.addEventListener('visibilitychange', () => {
-      document.hidden ? neuralNet.pause() : neuralNet.resume();
-    });
+    function initNeuralBg(id, userCfg) {
+      var canvas = document.getElementById(id);
+      if (!canvas) { console.warn('neural-bg: #'+id+' not found'); return null; }
+      var cfg={};
+      for (var k in DEFAULTS) cfg[k]=DEFAULTS[k];
+      if (userCfg) for (var k in userCfg) cfg[k]=userCfg[k];
+      var ctx=canvas.getContext('2d'), parent=canvas.parentElement;
+      var W=0,H=0,nodes=[],raf=null,frame=0,clicking=false;
+      var mouseX=-9999,mouseY=-9999;
+      var cd2=cfg.connectDist*cfg.connectDist, mr2=cfg.mouseRadius*cfg.mouseRadius;
+
+      function resize(){
+        var dpr=Math.min(window.devicePixelRatio||1,2);
+        W=parent.clientWidth; H=parent.clientHeight;
+        if(!W||!H) return;
+        canvas.width=W*dpr; canvas.height=H*dpr;
+        canvas.style.width=W+'px'; canvas.style.height=H+'px';
+        ctx.setTransform(dpr,0,0,dpr,0,0);
+      }
+      function makeNode(){
+        var a=Math.random()*Math.PI*2, s=cfg.speed*(0.5+Math.random()*0.5);
+        return { x:Math.random()*W, y:Math.random()*H,
+                 vx:Math.cos(a)*s, vy:Math.sin(a)*s,
+                 size:cfg.sizeMin+Math.random()*(cfg.sizeMax-cfg.sizeMin),
+                 col:rndColor(), phase:Math.random()*Math.PI*2,
+                 amp:0.35+Math.random()*0.55 };
+      }
+      function initNodes(){ nodes=[]; for(var i=0;i<cfg.nodeCount;i++) nodes.push(makeNode()); }
+
+      function drawEdge(a,b,dval){
+        var alpha=(1-Math.sqrt(dval)/cfg.connectDist)*cfg.edgeAlpha;
+        var g=ctx.createLinearGradient(a.x,a.y,b.x,b.y);
+        g.addColorStop(0,rgba(a.col,alpha)); g.addColorStop(1,rgba(b.col,alpha));
+        ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y);
+        ctx.strokeStyle=g; ctx.lineWidth=0.65; ctx.stroke();
+      }
+      function drawNode(n,excited){
+        var pulse=1+Math.sin(frame*cfg.pulseSpeed+n.phase)*0.22*n.amp;
+        var r=n.size*pulse, alpha=cfg.nodeAlpha+excited*(1-cfg.nodeAlpha);
+        ctx.beginPath(); ctx.arc(n.x,n.y,r,0,Math.PI*2);
+        ctx.fillStyle=rgba(n.col,alpha); ctx.fill();
+        if(excited>0.08){
+          ctx.beginPath(); ctx.arc(n.x,n.y,r+cfg.glowSize*excited,0,Math.PI*2);
+          ctx.strokeStyle=rgba(n.col,excited*0.32); ctx.lineWidth=1.2; ctx.stroke();
+        }
+      }
+      function tick(){
+        frame++; ctx.clearRect(0,0,W,H);
+        var force=clicking?cfg.clickForce:cfg.repelForce;
+        for(var i=0;i<nodes.length;i++){
+          var n=nodes[i];
+          var mdx=n.x-mouseX, mdy=n.y-mouseY, md2=mdx*mdx+mdy*mdy;
+          if(md2<mr2&&md2>0.01){ var md=Math.sqrt(md2),f=(1-md/cfg.mouseRadius)*force; n.vx+=(mdx/md)*f*10; n.vy+=(mdy/md)*f*10; }
+          n.vx*=cfg.friction; n.vy*=cfg.friction;
+          var spd=Math.sqrt(n.vx*n.vx+n.vy*n.vy);
+          if(spd>4){ n.vx=n.vx/spd*4; n.vy=n.vy/spd*4; }
+          n.x+=n.vx; n.y+=n.vy;
+          var m=20;
+          if(n.x<m) n.vx+=(m-n.x)*0.04;
+          if(n.x>W-m) n.vx-=(n.x-(W-m))*0.04;
+          if(n.y<m) n.vy+=(m-n.y)*0.04;
+          if(n.y>H-m) n.vy-=(n.y-(H-m))*0.04;
+          for(var j=i+1;j<nodes.length;j++){
+            var dist=d2(n.x,n.y,nodes[j].x,nodes[j].y);
+            if(dist<cd2) drawEdge(n,nodes[j],dist);
+          }
+        }
+        for(var i=0;i<nodes.length;i++){
+          var n=nodes[i], dist=d2(n.x,n.y,mouseX,mouseY);
+          drawNode(n,dist<mr2?1-Math.sqrt(dist)/cfg.mouseRadius:0);
+        }
+        raf=requestAnimationFrame(tick);
+      }
+
+      function onMove(e){
+        var rect=canvas.getBoundingClientRect();
+        if(e.clientX>=rect.left&&e.clientX<=rect.right&&e.clientY>=rect.top&&e.clientY<=rect.bottom){
+          mouseX=e.clientX-rect.left; mouseY=e.clientY-rect.top;
+        } else { mouseX=-9999; mouseY=-9999; }
+      }
+      function onDown(){ clicking=true; }
+      function onUp(){ clicking=false; }
+      function onTouch(e){
+        if(!e.touches.length) return;
+        var rect=canvas.getBoundingClientRect();
+        mouseX=e.touches[0].clientX-rect.left; mouseY=e.touches[0].clientY-rect.top;
+      }
+      function onTouchEnd(){ mouseX=-9999; mouseY=-9999; }
+
+      document.addEventListener('mousemove', onMove,     {passive:true});
+      document.addEventListener('mousedown', onDown,     {passive:true});
+      document.addEventListener('mouseup',   onUp,       {passive:true});
+      document.addEventListener('touchmove', onTouch,    {passive:true});
+      document.addEventListener('touchend',  onTouchEnd, {passive:true});
+
+      var ro=new ResizeObserver(function(){ resize(); });
+      ro.observe(parent);
+      resize(); initNodes(); tick();
+      console.log('[neural-bg] running on #'+id);
+
+      return {
+        destroy:function(){ cancelAnimationFrame(raf); ro.disconnect();
+          document.removeEventListener('mousemove',onMove);
+          document.removeEventListener('mousedown',onDown);
+          document.removeEventListener('mouseup',onUp);
+          document.removeEventListener('touchmove',onTouch);
+          document.removeEventListener('touchend',onTouchEnd);
+          ctx.clearRect(0,0,canvas.width,canvas.height); },
+        pause:function(){ cancelAnimationFrame(raf); raf=null; },
+        resume:function(){ if(!raf) tick(); },
+        set:function(patch){ for(var k in patch) cfg[k]=patch[k]; },
+      };
+    }
+    global.initNeuralBg=initNeuralBg;
+  }(window));
+
+  var neuralNet = initNeuralBg('nn-canvas');
+  document.addEventListener('visibilitychange', function(){
+    if(document.hidden) neuralNet.pause(); else neuralNet.resume();
+  });
   </script>
 
 </body>
