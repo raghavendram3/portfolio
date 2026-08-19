@@ -60,7 +60,7 @@
       <!-- CV Header -->
       <section class="cv-header">
         <div class="container">
-          <h1 class="cv-header__name">Raghavendra Meena</h1>
+          <h1 class="cv-header__name">Raghavendra Meena, PhD</h1>
           <p class="cv-header__summary">
             Postdoctoral researcher and computational materials scientist with expertise in DFT, AIMD, machine-learning interatomic potentials, microkinetic modelling, and LLM-driven workflow automation for sustainable catalysis and materials design.
           </p>
@@ -94,10 +94,9 @@
             <div class="cv-entry">
               <div class="cv-entry__date">2020 – 2025</div>
               <div class="cv-entry__content">
-                <h3>Ph.D., Theoretical and Computational Chemistry</h3>
+                <h3>Ph.D., Computational Heterogeneous Catalysis</h3>
                 <p class="cv-entry__place">Wageningen University &amp; Research, the Netherlands</p>
-                <p class="cv-entry__detail">Defense scheduled: June 22, 2026</p>
-                <p class="cv-entry__detail"><em>Advisors:</em> Prof. Guanna Li, Prof. Harry Bitter, Prof. Han Zuilhof</p>
+                <p class="cv-entry__detail"><em>Advisors:</em> Dr. Guanna Li, Prof. Harry Bitter, Prof. Han Zuilhof</p>
                 <p class="cv-entry__detail"><em>Thesis:</em> Multiscale Modeling of Molybdenum and Tungsten Carbide Catalysts for Sustainable Biomass Conversion</p>
               </div>
             </div>
@@ -129,14 +128,13 @@
           <div class="cv-entries">
 
             <div class="cv-entry">
-              <div class="cv-entry__date">Oct 2025 – Present</div>
+              <div class="cv-entry__date">Oct 2025 – June 2026</div>
               <div class="cv-entry__content">
                 <h3>Postdoctoral Researcher</h3>
                 <p class="cv-entry__place">Biobased Chemistry &amp; Technology group, Wageningen University &amp; Research</p>
                 <ul class="cv-entry__list">
-                  <li>Training and validating machine-learning interatomic potentials for CO<sub>2</sub> conversion and polymer-degradation systems, generating DFT reference data with VASP and CP2K and refining models through active-learning loops.</li>
-                  <li>Developed <a href="https://github.com/raghavendram3/agent_materials_science" target="_blank" rel="noopener"><code>agent-materials-science</code></a>, an open-source LLM-driven agent that exposes ASE and DFT tooling through a natural-language interface to lower the barrier to atomistic simulation workflows.</li>
-                  <li>Collaborating with the experimental group of Dr. Ina Vollmer (Utrecht University) on the mechanistic understanding of plastic polymer degradation, bridging atomistic simulation and physical experiment.</li>
+                  <li>Trained and validated machine-learning interatomic potentials (MACE, Meta's UMA/fair-chem) for CO<sub>2</sub> conversion and polymer-degradation chemistry, generating DFT reference data (VASP, CP2K) for training.</li>
+                  <li>Built <a href="https://pypi.org/project/agent-materials-science/" target="_blank" rel="noopener"><code>agent-materials-science</code></a>, an open-source automation agent exposing ASE and DFT tooling through a scripted interface to screen adsorption sites over catalytic surfaces in under a minute per structure — direct experience designing automated, high-throughput evaluation pipelines.</li>
                 </ul>
               </div>
             </div>
@@ -147,12 +145,11 @@
                 <h3>Doctoral Researcher</h3>
                 <p class="cv-entry__place">Biobased Chemistry &amp; Technology group, Wageningen University &amp; Research</p>
                 <ul class="cv-entry__list">
-                  <li>Performed high-throughput plane-wave DFT (VASP, CP2K) across large transition-metal-carbide composition and surface-termination spaces to derive activity descriptors for biomass hydrodeoxygenation catalysis.</li>
-                  <li>Designed and maintained modular, reproducible HPC pipelines (Python/Bash on SLURM) automating structure generation, DFT input preparation, job submission, and post-processing across thousands of calculations.</li>
-                  <li>Carried out <em>ab initio</em> molecular dynamics and metadynamics simulations (PLUMED) to characterise reaction free-energy landscapes on catalyst surfaces.</li>
-                  <li>Derived interpretable structure-property descriptors using SISSO (symbolic regression) and SHAP-based explainable AI, enabling data-efficient screening from limited DFT datasets.</li>
-                  <li>Translated computational insights directly into experimental design in collaboration with synthetic chemists and analytical scientists at WUR, UU, and TU/e.</li>
-                  <li>Co-authored 10 publications; contributed to NWO grant applications and international peer review.</li>
+                  <li>Systematically screened surface reaction mechanisms, adsorption energies, and transition-state geometries (NEB) across composition, dopant, and surface-termination spaces on transition-metal carbide surfaces using plane-wave DFT (VASP, CP2K).</li>
+                  <li>Derived interpretable activity descriptors via SISSO symbolic regression and SHAP explainable AI across large DFT datasets, identifying d-band centre and surface oxygen affinity as key statistical predictors of catalytic activity, then used them to propose materials-improvement strategies.</li>
+                  <li>Modelled reaction free-energy landscapes and transition states at catalyst interfaces via <em>ab initio</em> molecular dynamics and metadynamics (CP2K + PLUMED); applied microkinetic modelling to connect energetics to observed activity.</li>
+                  <li>Designed and maintained modular, reproducible HPC workflow pipelines (Python/Bash on SLURM, ASE, pymatgen) automating structure generation, DFT input preparation, job submission, and post-processing across thousands of calculations.</li>
+                  <li>Worked cross-institutionally (WUR, UU, UvA, TU/e) translating computational screening results into experimental catalyst design; co-authored 10 peer-reviewed publications and contributed to grant applications and peer review.</li>
                 </ul>
               </div>
             </div>
@@ -161,7 +158,7 @@
               <div class="cv-entry__date">May 2019 – May 2020</div>
               <div class="cv-entry__content">
                 <h3>Master's Thesis Researcher</h3>
-                <p class="cv-entry__place">Theoretical of Quantum Materials group, Sorbonne Université</p>
+                <p class="cv-entry__place">Theory of Quantum Materials group, Sorbonne Université</p>
                 <ul class="cv-entry__list">
                   <li>Computed ground-state electronic and magnetic properties of the narrowest zigzag graphene nanoribbon using Quantum ESPRESSO for plane-wave DFT and TurboRVB for quantum Monte Carlo (QMC), establishing many-body QMC reference data for a strongly correlated, low-dimensional carbon system.</li>
                   <li>Benchmarked a hierarchy of DFT exchange-correlation approximations, including DFT+U, against the QMC reference to assess their accuracy for the antiferromagnetic ground state and spin-resolved electronic structure.</li>
@@ -181,7 +178,10 @@
           <h3 class="cv-section__subtitle">First-author publications</h3>
           <ol class="cv-publist">
             <li>
-              <strong>Meena, R.</strong>; Purcell, J. M.; Kluijtmans, W.; Zuilhof, H.; Bitter, J. H.; Ouyang, R.; Li, G. (2025). Activity descriptors of Mo<sub>2</sub>C-based catalysts for C–OH bond activation. <em>ChemRxiv</em> (under review at <em>ACS Catalysis</em>). <a href="https://doi.org/10.26434/chemrxiv-2025-pg52l" target="_blank" rel="noopener">doi:10.26434/chemrxiv-2025-pg52l</a>
+              <strong>Meena, R.</strong> Understanding the Dynamics of C–OH Bond Activation over Mo<sub>2</sub>C under Hydrodeoxygenation Reaction Conditions. <em>Manuscript submitted to RSC Chemical Science.</em>
+            </li>
+            <li>
+              <strong>Meena, R.</strong>; Purcell, J. M.; Kluijtmans, W.; Zuilhof, H.; Bitter, J. H.; Ouyang, R.; Li, G. (2026). Activity descriptors of Mo<sub>2</sub>C-based catalysts for C–OH bond activation. <em>ChemRxiv</em> (manuscript submitted to <em>ACS JPCC</em>). <a href="https://doi.org/10.26434/chemrxiv-2025-pg52l/v2" target="_blank" rel="noopener">doi:10.26434/chemrxiv-2025-pg52l/v2</a>
             </li>
             <li>
               <strong>Meena, R.</strong>; Draijer, K. M.; van Dam, B.; Zuilhof, H.; Bitter, J. H.; Li, G. (2025). Rationalizing catalytic performances of Mo/W-(oxy)carbides for hydrodeoxygenation reaction. <em>ChemCatChem</em>. <em>Front cover.</em> <a href="https://doi.org/10.1002/cctc.202500659" target="_blank" rel="noopener">doi:10.1002/cctc.202500659</a>
@@ -195,21 +195,21 @@
           </ol>
 
           <h3 class="cv-section__subtitle">Co-authored publications</h3>
-          <ol class="cv-publist" start="5">
-            <li>
-              Simi, S.; Mathew, T.; <strong>Meena, R.</strong>; Li, G.; Shiju, N. R.; <em>et al.</em> (2025). Towards improved activity and stability in RWGS reaction: dispersed copper in mesoporous alumina matrix. <em>Chemical Engineering Journal</em>. <a href="https://doi.org/10.1016/j.cej.2025.169863" target="_blank" rel="noopener">doi:10.1016/j.cej.2025.169863</a>
-            </li>
+          <ol class="cv-publist" start="6">
             <li>
               Hergesell, A. H.; Popp, S.; <strong>Meena, R.</strong>; Guarin, V. M. O.; Seitzinger, C. L.; Sievers, C.; Li, G.; Vollmer, I. (2025). Homolytic fracture of inorganic crystalline materials enhances the mechano-chemical degradation of polypropylene. <em>Chemical Science</em>. <a href="https://doi.org/10.1039/d5sc03348a" target="_blank" rel="noopener">doi:10.1039/d5sc03348a</a>
-            </li>
-            <li>
-              Pirgach, D. A.; <strong>Meena, R.</strong>; Li, G.; Miloserdov, F. M.; van Es, D. S.; Bruijnincx, P. C. A.; Bitter, J. H. (2025). Medium-dependent regioselectivity of electrochemical bromination of methyl levulinate. <em>RSC Sustainability</em>. <a href="https://doi.org/10.1039/d5su00037h" target="_blank" rel="noopener">doi:10.1039/d5su00037h</a>
             </li>
             <li>
               Hergesell, A. H.; Baarslag, R. J.; Seitzinger, C. L.; <strong>Meena, R.</strong>; Schara, P.; Tomović, Ž.; Li, G.; Weckhuysen, B. M.; Vollmer, I. (2024). Surface-activated mechano-catalysis for ambient conversion of plastic waste. <em>Journal of the American Chemical Society</em>. <a href="https://doi.org/10.1021/jacs.4c07157" target="_blank" rel="noopener">doi:10.1021/jacs.4c07157</a>
             </li>
             <li>
               Zhang, H.; Bolshakov, A.; <strong>Meena, R.</strong>; Garcia, G. A.; Dugulan, A. I.; Parastaev, A.; Li, G.; Hensen, E. J. M.; Kosinov, N. (2023). Revealing active sites and reaction pathways in methane non-oxidative coupling over iron-containing zeolites. <em>Angewandte Chemie International Edition</em>. <a href="https://doi.org/10.1002/anie.202306196" target="_blank" rel="noopener">doi:10.1002/anie.202306196</a>
+            </li>
+            <li>
+              Simi, S.; Mathew, T.; <strong>Meena, R.</strong>; Li, G.; Shiju, N. R.; <em>et al.</em> (2025). Towards improved activity and stability in RWGS reaction: dispersed copper in mesoporous alumina matrix. <em>Chemical Engineering Journal</em>. <a href="https://doi.org/10.1016/j.cej.2025.169863" target="_blank" rel="noopener">doi:10.1016/j.cej.2025.169863</a>
+            </li>
+            <li>
+              Pirgach, D. A.; <strong>Meena, R.</strong>; Li, G.; Miloserdov, F. M.; van Es, D. S.; Bruijnincx, P. C. A.; Bitter, J. H. (2025). Medium-dependent regioselectivity of electrochemical bromination of methyl levulinate. <em>RSC Sustainability</em>. <a href="https://doi.org/10.1039/d5su00037h" target="_blank" rel="noopener">doi:10.1039/d5su00037h</a>
             </li>
             <li>
               Ghorai, S.; <strong>Meena, R.</strong>; Joseph, A. P.; Jemmis, E. D. (2021). Comparison of RNC coupling and CO coupling mediated by Cr–Cr quintuple bond and B–B multiple bonds. <em>Journal of Physical Chemistry A</em>. <a href="https://doi.org/10.1021/acs.jpca.1c05185" target="_blank" rel="noopener">doi:10.1021/acs.jpca.1c05185</a>
@@ -226,8 +226,12 @@
               <span class="skill-item__value">Quantum ESPRESSO, VASP, CP2K, GAUSSIAN</span>
             </div>
             <div class="skill-item">
+              <span class="skill-item__label">Catalysis &amp; surface science</span>
+              <span class="skill-item__value">Surface reaction mechanisms, transition-state searches (NEB), defect and dopant screening, microkinetic modelling, thermochemistry</span>
+            </div>
+            <div class="skill-item">
               <span class="skill-item__label">Beyond DFT</span>
-              <span class="skill-item__value"><em>Ab initio</em> molecular dynamics, metadynamics (CP2K + PLUMED), Quantum Monte Carlo (TurboRVB), microkinetic modelling</span>
+              <span class="skill-item__value"><em>Ab initio</em> and ML-accelerated molecular dynamics, metadynamics (CP2K + PLUMED), Quantum Monte Carlo (TurboRVB)</span>
             </div>
             <div class="skill-item">
               <span class="skill-item__label">ML potentials</span>
@@ -239,7 +243,7 @@
             </div>
             <div class="skill-item">
               <span class="skill-item__label">Programming</span>
-              <span class="skill-item__value">Python (NumPy, ASE, scikit-learn, seaborn, pandas, matplotlib), Bash, Git, Linux</span>
+              <span class="skill-item__value">Python (NumPy, ASE, scikit-learn, pandas, matplotlib), Bash, Git, Linux</span>
             </div>
             <div class="skill-item">
               <span class="skill-item__label">ML / data science</span>
@@ -253,10 +257,10 @@
           <h2 class="cv-section__title">Funding and Awards</h2>
           <div class="cv-entries">
             <div class="cv-entry">
-              <div class="cv-entry__date">2021 – 2025</div>
+              <div class="cv-entry__date">2021 – 2026</div>
               <div class="cv-entry__content">
                 <h3>NWO HPC grants, <em>Snellius</em> supercomputer</h3>
-                <p class="cv-entry__detail">12.5M CPU and 50k GPU hours (€200k equivalent)</p>
+                <p class="cv-entry__detail">12.5M CPU and 50k GPU hours (€200k equivalent); independently authored compute proposals</p>
               </div>
             </div>
             <div class="cv-entry">
@@ -289,6 +293,7 @@
           <ul class="cv-list">
             <li>Co-taught advanced computational chemistry to graduate students at Wageningen University, 2020–2025.</li>
             <li>Supervised 6 thesis projects: 3 MSc major, 2 MSc minor, 1 BSc.</li>
+            <li>Served as group resource on DFT methods and HPC workflows.</li>
             <li>Supervised undergraduate organic chemistry practicals.</li>
           </ul>
         </section>
@@ -319,7 +324,7 @@
         <!-- References -->
         <section class="cv-section">
           <h2 class="cv-section__title">References</h2>
-          <p>Available on request from the PhD advisors listed in this CV.</p>
+          <p>Available on request from the advisors listed in this CV.</p>
         </section>
 
       </div>
